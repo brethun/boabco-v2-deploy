@@ -1,0 +1,139 @@
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.note-item {
+  border: 2px solid var(--warm-beige);
+  border-radius: 12px;
+  padding: 25px;
+  background: linear-gradient(135deg, var(--white) 0%, var(--off-white) 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.note-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-orange), var(--accent-gold));
+  border-radius: 12px 12px 0 0;
+}
+
+.note-item:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.note-item.resolved {
+  background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+  border-left: 6px solid var(--success-green);
+}
+
+.note-item.archived {
+  background: linear-gradient(135deg, var(--light-gray) 0%, #f0f0f0 100%);
+  border-left: 6px solid var(--medium-gray);
+  opacity: 0.8;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.note-meta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.note-author {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.note-timestamp {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.note-status-select {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9em;
+  background-color: white;
+}
+
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 0.8em;
+}
+
+.note-content {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.active {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-badge.resolved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.archived {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.no-notes {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .note-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .note-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

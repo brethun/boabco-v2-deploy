@@ -1,0 +1,79 @@
+.campaigns-page .page-sections {
+  gap: var(--space-5);
+}
+
+.metric-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .metric-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.metric-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  background-color: var(--off-white);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.metric-label {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.metric-value {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--deep-brown);
+}
+
+.campaigns-table-shell {
+  overflow-x: auto;
+}
+
+.campaign-name {
+  font-weight: 600;
+  color: var(--deep-brown);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-2);
+  height: 26px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.table-actions {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.action-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--primary-orange);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-link:hover {
+  color: var(--deep-brown);
+  text-decoration: underline;
+}

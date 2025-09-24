@@ -1,0 +1,231 @@
+.referral-detail-header {
+  align-items: flex-start;
+}
+
+.referral-detail-header .page-actions {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.status-chip {
+  font-weight: 600;
+}
+
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.active-referral h4,
+.linked-referrals h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--deep-brown);
+}
+
+.referral-card-detail {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.referral-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-2);
+  height: 26px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.status-badge.small {
+  height: 24px;
+  font-size: 0.7rem;
+}
+
+.referral-info {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--off-white);
+}
+
+.info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-subtle);
+  font-weight: 600;
+}
+
+.info-value {
+  font-size: 0.95rem;
+  color: var(--deep-brown);
+}
+
+.linked-referrals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.referrals-table-container {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.referrals-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.referrals-table th,
+.referrals-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.referrals-table th {
+  background-color: var(--off-white);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.table-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--primary-orange);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.table-link:hover {
+  color: var(--deep-brown);
+  text-decoration: underline;
+}
+
+.history-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.timeline-marker {
+  display: flex;
+  justify-content: center;
+}
+
+.timeline-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--warm-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--deep-brown);
+}
+
+.timeline-content {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--white);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.timeline-action {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--deep-brown);
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+}
+
+.timeline-details {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.timeline-performer {
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+}
+
+.no-history {
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  text-align: center;
+  padding: var(--space-5);
+  color: var(--text-subtle);
+}
+
+@media (max-width: 768px) {
+  .referral-detail-header {
+    align-items: stretch;
+  }
+
+  .referral-detail-header .page-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .referral-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}

@@ -1,0 +1,143 @@
+.business-page .page-sections {
+  gap: var(--space-5);
+}
+
+.business-filters {
+  width: 100%;
+}
+
+.filter-row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 900px) {
+  .filter-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: end;
+  }
+}
+
+.search-group,
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.filter-input {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background-color: var(--white);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.16);
+}
+
+.business-table-shell {
+  overflow-x: auto;
+}
+
+.business-table td {
+  vertical-align: top;
+}
+
+.business-name-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--primary-orange);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.business-name-link:hover {
+  color: var(--deep-brown);
+  text-decoration: underline;
+}
+
+.abn-details {
+  display: grid;
+  gap: 2px;
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+}
+
+.community-tag,
+.industry-tag {
+  display: inline-flex;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.community-tag {
+  background-color: var(--warm-beige);
+  color: var(--deep-brown);
+}
+
+.industry-tag {
+  background-color: var(--off-white);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.action-btn {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.action-btn:hover {
+  border-color: var(--primary-orange);
+  color: var(--deep-brown);
+}
+
+.action-btn--danger {
+  border-color: var(--error-red);
+  color: var(--error-red);
+}
+
+.action-btn--danger:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--error-red);
+}
+
+@media (max-width: 720px) {
+  .page-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .page-actions .btn {
+    width: 100%;
+  }
+}
