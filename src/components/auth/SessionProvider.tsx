@@ -1,9 +1,11 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { authUtils, TokenPayload } from '../../services/auth';
 
 export interface SessionUser {
   id: string;
   name: string;
   email: string;
+  role: string;
 }
 
 interface LoginCredentials {
@@ -25,23 +27,10 @@ interface SessionContextValue extends SessionSnapshot {
   logout: () => void;
 }
 
-interface PersistedSession {
-  user: SessionUser;
-  token: string;
-}
-
 export const DEMO_CREDENTIALS = {
-  email: 'demo@boabco.com',
-  password: 'demo1234'
+  email: 'admin@boabco.com',
+  password: 'password'
 } as const;
-
-const DEMO_USER: SessionUser = {
-  id: 'demo-admin',
-  name: 'Demo Administrator',
-  email: DEMO_CREDENTIALS.email
-};
-
-const SESSION_STORAGE_KEY = 'boabco.session';
 const initialSession: SessionSnapshot = {
   user: null,
   token: null,
@@ -49,6 +38,14 @@ const initialSession: SessionSnapshot = {
 };
 
 const SessionContext = createContext<SessionContextValue | undefined>(undefined);
+
+// Helper to convert TokenPayload to SessionUser
+const tokenPayloadToUser = (payload: TokenPayload): SessionUser => ({
+  id: payload.sub,
+  name: payload.name,
+  email: payload.email,
+  role: payload.role
+});
 
 export const SessionProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [session, setSession] = useState<SessionSnapshot>(initialSession);
@@ -58,18 +55,19 @@ export const SessionProvider: React.FC<React.PropsWithChildren> = ({ children })
       return;
     }
 
-    const raw = window.localStorage.getItem(SESSION_STORAGE_KEY);
-
-    if (!raw) {
+    // Try to hydrate session from stored JWT tokens
+    const storedTokens = authUtils.getStoredTokens();
+    if (!storedTokens) {
       return;
     }
 
-    try {
-      const persisted: PersistedSession = JSON.parse(raw);
-      setSession({ ...persisted, status: 'idle' });
-    } catch (error) {
-      console.warn('Unable to parse persisted session', error);
-      window.localStorage.removeItem(SESSION_STORAGE_KEY);
+    const currentUser = authUtils.getCurrentUser();
+    if (currentUser) {
+      setSession({
+        user: tokenPayloadToUser(currentUser),
+        token: storedTokens.accessToken,
+        status: 'idle'
+      });
     }
   }, []);
 
@@ -83,25 +81,25 @@ export const SessionProvider: React.FC<React.PropsWithChildren> = ({ children })
     setSession((previous) => ({ ...previous, status: 'authenticating' }));
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 450));
+      // Use JWT auth utilities for login
+      const tokens = await authUtils.mockLogin(trimmedEmail, password);
 
-      const isValidCredentials =
-        trimmedEmail === DEMO_CREDENTIALS.email && password === DEMO_CREDENTIALS.password;
-
-      if (!isValidCredentials) {
+      if (!tokens) {
         throw new Error('Invalid email or password.');
       }
 
-      const mockSession: PersistedSession = {
-        user: DEMO_USER,
-        token: 'mock-token'
-      };
+      // Store tokens in localStorage
+      authUtils.storeTokens(tokens);
 
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(mockSession));
+      // Get user from token and update session
+      const currentUser = authUtils.getCurrentUser();
+      if (currentUser) {
+        setSession({
+          user: tokenPayloadToUser(currentUser),
+          token: tokens.accessToken,
+          status: 'idle'
+        });
       }
-
-      setSession({ ...mockSession, status: 'idle' });
     } catch (error) {
       setSession({ user: null, token: null, status: 'idle' });
       throw error;
@@ -109,10 +107,8 @@ export const SessionProvider: React.FC<React.PropsWithChildren> = ({ children })
   }, []);
 
   const logout = useCallback(() => {
-    if (typeof window !== 'undefined') {
-      window.localStorage.removeItem(SESSION_STORAGE_KEY);
-    }
-
+    // Use JWT auth utilities for logout
+    authUtils.logout();
     setSession(initialSession);
   }, []);
 
