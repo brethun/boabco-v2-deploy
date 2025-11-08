@@ -28,8 +28,8 @@ interface SessionContextValue extends SessionSnapshot {
 }
 
 export const DEMO_CREDENTIALS = {
-  email: 'admin@boabco.com',
-  password: 'password'
+  email: process.env.REACT_APP_DEMO_EMAIL || 'admin@boabco.com',
+  password: process.env.REACT_APP_DEMO_PASSWORD || 'password'
 } as const;
 const initialSession: SessionSnapshot = {
   user: null,
@@ -93,13 +93,15 @@ export const SessionProvider: React.FC<React.PropsWithChildren> = ({ children })
 
       // Get user from token and update session
       const currentUser = authUtils.getCurrentUser();
-      if (currentUser) {
-        setSession({
-          user: tokenPayloadToUser(currentUser),
-          token: tokens.accessToken,
-          status: 'idle'
-        });
+      if (!currentUser) {
+        throw new Error('Failed to retrieve user session. Please try again.');
       }
+
+      setSession({
+        user: tokenPayloadToUser(currentUser),
+        token: tokens.accessToken,
+        status: 'idle'
+      });
     } catch (error) {
       setSession({ user: null, token: null, status: 'idle' });
       throw error;

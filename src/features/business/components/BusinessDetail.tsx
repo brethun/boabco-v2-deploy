@@ -1038,22 +1038,6 @@ const BusinessDetail: React.FC<BusinessDetailProps> = ({ business, onBack, onSav
           <h1 className="page-title">{formData.businessName}</h1>
           <p className="page-subtitle">{formData.community} • {formData.industry.primary}</p>
         </div>
-        <div className="page-actions">
-          {!isEditing ? (
-            <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>
-              Edit business
-            </button>
-          ) : (
-            <>
-              <button className="btn btn-secondary" type="button" onClick={handleCancel}>
-                Cancel
-              </button>
-              <button className="btn btn-primary" type="button" onClick={handleSave}>
-                Save changes
-              </button>
-            </>
-          )}
-        </div>
         <nav className="page-tabs" aria-label="Business sections">
           {tabs.map((tab) => (
             <button
@@ -1077,6 +1061,23 @@ const BusinessDetail: React.FC<BusinessDetailProps> = ({ business, onBack, onSav
             {renderContent()}
           </div>
         </div>
+      </div>
+
+      <div className="page-actions-bottom">
+        {!isEditing ? (
+          <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>
+            Edit business
+          </button>
+        ) : (
+          <>
+            <button className="btn btn-secondary" type="button" onClick={handleCancel}>
+              Cancel
+            </button>
+            <button className="btn btn-primary" type="button" onClick={handleSave}>
+              Save changes
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

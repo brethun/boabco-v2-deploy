@@ -89,8 +89,9 @@
 }
 
 .community-tag {
-  background-color: var(--warm-beige);
-  color: var(--deep-brown);
+  background-color: var(--off-white);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
 }
 
 .industry-tag {

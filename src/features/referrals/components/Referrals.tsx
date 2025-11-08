@@ -696,19 +696,19 @@ const Referrals: React.FC = () => {
                           </div>
                         </div>
                         <div className="card-details">
-                          {referral.response && (
+                          {referral.response && typeof referral.response === 'string' && referral.response.trim() !== '' && (
                             <div className="detail-item">
                               <span className="detail-key">Response</span>
                               <span>{referral.response}</span>
                             </div>
                           )}
-                          {referral.referred && (
+                          {referral.referred && typeof referral.referred === 'string' && referral.referred.trim() !== '' && (
                             <div className="detail-item">
                               <span className="detail-key">Referred</span>
                               <span>{referral.referred}</span>
                             </div>
                           )}
-                          {referral.lastUpdated && (
+                          {referral.lastUpdated && typeof referral.lastUpdated === 'string' && referral.lastUpdated.trim() !== '' && (
                             <div className="detail-item">
                               <span className="detail-key">Updated</span>
                               <span>{referral.lastUpdated}</span>

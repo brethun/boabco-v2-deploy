@@ -1,6 +1,6 @@
 import React, { FormEvent, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { DEMO_CREDENTIALS, useSession } from './SessionProvider';
+import { useSession } from './SessionProvider';
 import './LoginPage.css';
 
 interface LocationState {
@@ -9,7 +9,6 @@ interface LocationState {
   };
 }
 
-const isDevEnvironment = process.env.NODE_ENV !== 'production';
 
 const LoginPage: React.FC = () => {
   const { login, status, isAuthenticated } = useSession();
@@ -43,11 +42,6 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const handleAutofill = () => {
-    setEmail(DEMO_CREDENTIALS.email);
-    setPassword(DEMO_CREDENTIALS.password);
-    setError(null);
-  };
 
   return (
     <div className="login-page">
@@ -60,12 +54,7 @@ const LoginPage: React.FC = () => {
               className="login-page__logo"
             />
             <h1 id="login-title" className="login-page__title">Sign in to BoAbCo</h1>
-            <p className="login-page__subtitle">Use the demo credentials below to explore the platform.</p>
-            <p className="login-page__hint">
-              Demo email: <strong>{DEMO_CREDENTIALS.email}</strong>
-              <br />
-              Demo password: <strong>{DEMO_CREDENTIALS.password}</strong>
-            </p>
+            <p className="login-page__subtitle">Enter your credentials to access the platform.</p>
           </div>
           <form className="login-form" onSubmit={handleSubmit}>
             <label className="login-form__field">
@@ -76,7 +65,7 @@ const LoginPage: React.FC = () => {
                 autoComplete="username"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                placeholder={DEMO_CREDENTIALS.email}
+                placeholder="Enter your email"
                 required
               />
             </label>
@@ -88,21 +77,12 @@ const LoginPage: React.FC = () => {
                 autoComplete="current-password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                placeholder="Enter the demo password"
+                placeholder="Enter your password"
                 required
               />
             </label>
             {error ? (
               <div className="login-form__error" role="alert">{error}</div>
-            ) : null}
-            {isDevEnvironment ? (
-              <button
-                type="button"
-                className="login-form__autofill"
-                onClick={handleAutofill}
-              >
-                Autofill demo credentials
-              </button>
             ) : null}
             <button
               type="submit"

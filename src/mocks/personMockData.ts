@@ -13,13 +13,13 @@ export const initialPeopleRecords: PersonRecord[] = [
     id: 'person-1',
     engagementStatus: 'Active',
     personalDetails: {
-      firstName: 'Lara',
-      middleName: 'Marie',
-      lastName: 'Davis',
+      firstName: 'Taylor',
+      middleName: 'Jamie',
+      lastName: 'Mitchell',
       dateOfBirth: '1992-04-16',
       gender: 'Female',
-      motherName: 'Karen Davis',
-      fatherName: 'Albert Davis',
+      motherName: 'Kim Mitchell',
+      fatherName: 'Alex Mitchell',
       community: 'Kimberley Region',
       familyGroup: 'Group B',
       driversLicence: 'Yes',
@@ -125,14 +125,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-1',
         content: 'Attended leadership workshop and requested mentorship pairing.',
         timestamp: isoDaysAgo(7),
-        author: 'Samantha Lee',
+        author: 'Alex Smith',
         status: 'Active'
       },
       {
         id: 'note-2',
         content: 'Updated medical clearance paperwork. Available for FIFO roster discussions.',
         timestamp: isoDaysAgo(2),
-        author: 'Michael Grant',
+        author: 'Casey Johnson',
         status: 'Resolved'
       }
     ],
@@ -146,13 +146,13 @@ export const initialPeopleRecords: PersonRecord[] = [
     id: 'person-2',
     engagementStatus: 'Prospect',
     personalDetails: {
-      firstName: 'Noah',
-      middleName: 'James',
-      lastName: 'Kelly',
+      firstName: 'Jordan',
+      middleName: 'Lee',
+      lastName: 'Chen',
       dateOfBirth: '1996-08-02',
       gender: 'Male',
-      motherName: 'Marina Kelly',
-      fatherName: 'Patrick Kelly',
+      motherName: 'Sarah Chen',
+      fatherName: 'David Chen',
       community: 'Derby',
       familyGroup: 'Group A',
       driversLicence: 'Yes',
@@ -255,14 +255,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-3',
         content: 'Introduced at careers expo. Keen on roles that blend engineering and traditional land care.',
         timestamp: isoDaysAgo(21),
-        author: 'Jordan Miles',
+        author: 'Taylor Brown',
         status: 'Active'
       },
       {
         id: 'note-4',
         content: 'Sent through updated resume and references after site visit.',
         timestamp: isoDaysAgo(5),
-        author: 'Jordan Miles',
+        author: 'Taylor Brown',
         status: 'Active'
       }
     ],
@@ -276,13 +276,13 @@ export const initialPeopleRecords: PersonRecord[] = [
     id: 'person-3',
     engagementStatus: 'Active',
     personalDetails: {
-      firstName: 'Aaliyah',
-      middleName: 'Rose',
-      lastName: 'Thompson',
+      firstName: 'Casey',
+      middleName: 'Morgan',
+      lastName: 'Williams',
       dateOfBirth: '1988-11-30',
       gender: 'Female',
-      motherName: 'Gloria Thompson',
-      fatherName: 'Peter Thompson',
+      motherName: 'Lisa Williams',
+      fatherName: 'Mark Williams',
       community: 'Kununurra',
       familyGroup: 'Group D',
       driversLicence: 'Yes',
@@ -386,14 +386,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-5',
         content: 'Preparing capability statement for local government procurement team.',
         timestamp: isoDaysAgo(9),
-        author: 'Priya Nair',
+        author: 'Jordan Davis',
         status: 'Active'
       },
       {
         id: 'note-6',
         content: 'Needs guidance on bookkeeping software migration.',
         timestamp: isoDaysAgo(4),
-        author: 'Priya Nair',
+        author: 'Jordan Davis',
         status: 'Active'
       }
     ],
@@ -407,13 +407,13 @@ export const initialPeopleRecords: PersonRecord[] = [
     id: 'person-4',
     engagementStatus: 'Re-engaging',
     personalDetails: {
-      firstName: 'Ethan',
-      middleName: 'Mathew',
-      lastName: 'Wright',
+      firstName: 'Riley',
+      middleName: 'Cameron',
+      lastName: 'Anderson',
       dateOfBirth: '1984-03-22',
       gender: 'Male',
-      motherName: 'Leah Wright',
-      fatherName: 'Morgan Wright',
+      motherName: 'Emma Anderson',
+      fatherName: 'Chris Anderson',
       community: 'Fitzroy Crossing',
       familyGroup: 'Group C',
       driversLicence: 'Yes',
@@ -516,14 +516,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-7',
         content: 'Re-engaged after time interstate. Keen on supervisory pathways if support available.',
         timestamp: isoDaysAgo(16),
-        author: 'Kara Wilson',
+        author: 'Riley Martinez',
         status: 'Active'
       },
       {
         id: 'note-8',
         content: 'Awaiting confirmation of medical clearance appointment.',
         timestamp: isoDaysAgo(3),
-        author: 'Kara Wilson',
+        author: 'Riley Martinez',
         status: 'Pending'
       }
     ],

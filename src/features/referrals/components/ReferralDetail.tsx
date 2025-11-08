@@ -400,22 +400,6 @@ const ReferralDetail: React.FC<ReferralDetailProps> = ({ referral, onBack, onSav
           <h1 className="page-title">{referral.title}</h1>
           <p className="page-subtitle">Contact: {referral.contactDetails?.name || 'Unknown'} • Status: <span className="status-chip" style={{ color: getStatusColor(referral.status) }}>{referral.status}</span></p>
         </div>
-        <div className="page-actions">
-          {isEditing ? (
-            <>
-              <button className="btn btn-secondary" type="button" onClick={handleCancel}>
-                Cancel
-              </button>
-              <button className="btn btn-primary" type="button" onClick={handleSave}>
-                Save changes
-              </button>
-            </>
-          ) : (
-            <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>
-              Edit details
-            </button>
-          )}
-        </div>
         <nav className="page-tabs" aria-label="Referral sections">
           {tabs.map((tab) => (
             <button
@@ -441,6 +425,23 @@ const ReferralDetail: React.FC<ReferralDetailProps> = ({ referral, onBack, onSav
             {activeTab === 'history' && renderHistory()}
           </div>
         </div>
+      </div>
+
+      <div className="page-actions-bottom">
+        {isEditing ? (
+          <>
+            <button className="btn btn-secondary" type="button" onClick={handleCancel}>
+              Cancel
+            </button>
+            <button className="btn btn-primary" type="button" onClick={handleSave}>
+              Save changes
+            </button>
+          </>
+        ) : (
+          <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>
+            Edit details
+          </button>
+        )}
       </div>
     </div>
   );

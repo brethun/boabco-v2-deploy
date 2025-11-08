@@ -45,6 +45,22 @@ interface ReferralData {
   clientGender: string;
 }
 
+interface PersonDirectory {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  community: string;
+  status: 'active' | 'prospect' | 're-engaging';
+  lastContact: string;
+  referralsCount: number;
+  surveysCount: number;
+  jobTitle: string;
+  company: string;
+  industryTags: string[];
+}
+
 interface ReferralItem {
   id: string;
   title: string;
@@ -86,6 +102,7 @@ interface HistoryItem {
 }
 
 const PeopleBBY: React.FC = () => {
+  const [selectedPersonId, setSelectedPersonId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('contact-details');
   const [formData, setFormData] = useState<PersonalDetailsData>({
     firstName: '',
@@ -121,12 +138,12 @@ const PeopleBBY: React.FC = () => {
 
   const [referralData, setReferralData] = useState<ReferralData>({
     referralPathway: '',
-    clientFirstName: 'Jason',
-    clientLastName: 'Hungerford',
-    clientPhoneNumber: '63917723016',
-    clientEmail: 'jason@hungerford.com.au',
+    clientFirstName: 'Alex',
+    clientLastName: 'Thompson',
+    clientPhoneNumber: '08 9567 0001',
+    clientEmail: 'alex.thompson@example.com',
     clientAPP: '',
-    clientGender: 'Male'
+    clientGender: 'Non-binary'
   });
 
   const [selectedReferral, setSelectedReferral] = useState<string>('');
@@ -185,7 +202,7 @@ const PeopleBBY: React.FC = () => {
   const [referralSlipData, setReferralSlipData] = useState<ReferralSlipData>({
     responseId: '',
     referralId: '#undefined',
-    organizationName: 'binarri-binyja yarrawoo',
+    organizationName: 'community development network',
     organizationSubtitle: 'Community Support Services',
     serviceDate: '',
     serviceType: 'N/A',
@@ -197,6 +214,69 @@ const PeopleBBY: React.FC = () => {
     serviceLocation: '',
     notes: 'Please contact the service provider for more information.'
   });
+
+  const [peopleDirectory] = useState<PersonDirectory[]>([
+    {
+      id: '1',
+      firstName: 'Taylor',
+      lastName: 'Mitchell',
+      email: 'taylor.mitchell@example.com',
+      phone: '08 9123 0001',
+      community: 'Kimberley Region',
+      status: 'active',
+      lastContact: '21 Oct 2025',
+      referralsCount: 5,
+      surveysCount: 2,
+      jobTitle: 'Equipment Operator',
+      company: 'Northern Mining Services',
+      industryTags: ['Mining', 'Logistics']
+    },
+    {
+      id: '2',
+      firstName: 'Jordan',
+      lastName: 'Chen',
+      email: 'jordan.chen@example.com',
+      phone: '08 9234 0002',
+      community: 'Derby',
+      status: 'prospect',
+      lastContact: '18 Oct 2025',
+      referralsCount: 3,
+      surveysCount: 1,
+      jobTitle: 'Graduate Mining Engineer',
+      company: 'Mountain Resources',
+      industryTags: ['Mining', 'Environmental Services']
+    },
+    {
+      id: '3',
+      firstName: 'Casey',
+      lastName: 'Williams',
+      email: 'casey.williams@example.com',
+      phone: '08 9345 0003',
+      community: 'Kununurra',
+      status: 'active',
+      lastContact: '19 Oct 2025',
+      referralsCount: 1,
+      surveysCount: 0,
+      jobTitle: 'Business Owner',
+      company: 'Outback Catering • Community Food Collective',
+      industryTags: ['Hospitality', 'Community Services']
+    },
+    {
+      id: '4',
+      firstName: 'Riley',
+      lastName: 'Anderson',
+      email: 'riley.anderson@example.com',
+      phone: '08 9456 0004',
+      community: 'Fitzroy Crossing',
+      status: 're-engaging',
+      lastContact: '20 Oct 2025',
+      referralsCount: 7,
+      surveysCount: 3,
+      jobTitle: 'Project Support Officer',
+      company: 'Community Development Corporation',
+      industryTags: ['Civil Construction', 'Community Services']
+    }
+  ]);
 
   const [historyItems] = useState<HistoryItem[]>([
     {
@@ -358,17 +438,17 @@ const PeopleBBY: React.FC = () => {
   const getActivityIcon = (type: string) => {
     switch (type) {
       case 'status_change':
-        return '🔄';
+        return '✅'; // check-circle for status updates
       case 'communication':
-        return '💬';
+        return '📧'; // mail for notifications/communication
       case 'document':
-        return '📄';
+        return '📋'; // clipboard-list for document/survey assignment
       case 'meeting':
-        return '🤝';
+        return '🔗'; // share-2 for referral generation/meetings
       case 'note':
-        return '📝';
+        return '✏️'; // edit-3 for contact details updated/notes
       default:
-        return '📌';
+        return '🟢'; // user-plus for profile creation (default)
     }
   };
 
@@ -379,6 +459,49 @@ const PeopleBBY: React.FC = () => {
     'Group D',
     'Group E'
   ];
+
+  const renderDirectory = () => (
+    <div className="tab-content-section">
+      <div className="people-directory-page">
+        <div className="people-directory-header">
+          <h1>People directory</h1>
+          <p>Browse the participant directory and open an individual record to review detailed information.</p>
+        </div>
+        <div className="people-directory-grid">
+          {peopleDirectory.map((person) => (
+            <div
+              key={person.id}
+              className="people-directory-card"
+              onClick={() => setSelectedPersonId(person.id)}
+            >
+              <div className="card-header">
+                <div className={`status-badge ${person.status.toLowerCase()}`}>
+                  {person.status.toUpperCase()}
+                </div>
+                <div className="last-contact">
+                  {person.lastContact}
+                </div>
+              </div>
+              <div className="card-content">
+                <h3 className="person-name">{person.firstName} {person.lastName}</h3>
+                <p className="person-location">{person.community}</p>
+                <p className="person-job-info">
+                  {person.jobTitle} · {person.company}
+                </p>
+                <div className="industry-tags">
+                  {person.industryTags.map((tag, index) => (
+                    <span key={index} className="industry-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   const renderContactDetails = () => (
     <div className="tab-content-section">
@@ -1240,18 +1363,43 @@ const PeopleBBY: React.FC = () => {
     </div>
   );
 
+  const selectedPerson = selectedPersonId ? peopleDirectory.find(p => p.id === selectedPersonId) : null;
   const activeLabel = tabs.find((tab) => tab.id === activeTab)?.label ?? tabs[0].label;
 
+  if (!selectedPersonId) {
+    // Show directory as main page
+    return (
+      <div className="page people-bby-page">
+        {renderDirectory()}
+      </div>
+    );
+  }
+
+  // Show person details with tabs
   return (
     <div className="page people-bby-page">
+      <div className="back-navigation">
+        <button
+          type="button"
+          className="back-button"
+          onClick={() => setSelectedPersonId(null)}
+        >
+          ← Back to people directory
+        </button>
+      </div>
       <header className="page-header has-tabs">
         <div className="stack">
-          <h1 className="page-title">BBY participant record</h1>
+          <h1 className="page-title">
+            Person #{selectedPersonId}
+          </h1>
           <p className="page-subtitle">
-            Track referrals, surveys, and contact information for the Binarri-Binyja Yarrawoo community program.
+            Contact: {selectedPerson?.firstName} {selectedPerson?.lastName} • Status:
+            <span className={`status-inline ${selectedPerson?.status.toLowerCase()}`}>
+              {selectedPerson?.status.charAt(0).toUpperCase()}{selectedPerson?.status.slice(1)}
+            </span>
           </p>
         </div>
-        <nav className="page-tabs" aria-label="People BBY sections">
+        <nav className="page-tabs" aria-label="Person sections">
           {tabs.map((tab) => (
             <button
               key={tab.id}
