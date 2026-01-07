@@ -41,6 +41,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--deep-brown);
+  font-family: var(--font-primary);
 }
 
 .detail-section p {
@@ -67,6 +68,7 @@
 .day-label {
   font-weight: 600;
   color: var(--text-muted);
+  font-family: var(--font-primary);
 }
 
 .hours-inputs {
@@ -79,10 +81,13 @@
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   padding: var(--space-2);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
 }
 
 .time-separator {
   color: var(--text-subtle);
+  font-family: var(--font-primary);
 }
 
 .closed-checkbox {
@@ -91,6 +96,7 @@
   gap: var(--space-2);
   font-size: 0.9rem;
   color: var(--text-subtle);
+  font-family: var(--font-primary);
 }
 
 .closed-checkbox input[type="checkbox"] {

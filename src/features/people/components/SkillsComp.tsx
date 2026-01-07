@@ -32,9 +32,10 @@ interface Competency {
 interface SkillsCompProps {
   data: any;
   onDataUpdate: (data: any) => void;
+  isEditing?: boolean;
 }
 
-const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
+const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate, isEditing = false }) => {
   const [highestQualification, setHighestQualification] = useState(
     data.skillsComp?.highestQualification || ''
   );
@@ -253,6 +254,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 setHighestQualification(e.target.value);
                 updateData();
               }}
+              disabled={!isEditing}
             >
               <option value="">Select Highest Qualification</option>
               {qualificationLevels.map(level => (
@@ -273,6 +275,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                     setInterestedInTraining(e.target.value);
                     updateData();
                   }}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -286,6 +289,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                     setInterestedInTraining(e.target.value);
                     updateData();
                   }}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -300,10 +304,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
           <div key={qual.id} className="repeatable-section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <h4>Qualification {index + 1}</h4>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-danger"
                 onClick={() => removeQualification(qual.id)}
+                disabled={!isEditing}
               >
                 Remove
               </button>
@@ -315,6 +320,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={qual.level}
                   onChange={(e) => updateQualification(qual.id, 'level', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Level</option>
                   {qualificationLevels.map(level => (
@@ -328,6 +334,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                   type="text"
                   value={qual.institution}
                   onChange={(e) => updateQualification(qual.id, 'institution', e.target.value)}
+                  disabled={!isEditing}
                 />
               </div>
             </div>
@@ -339,6 +346,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                   type="text"
                   value={qual.name}
                   onChange={(e) => updateQualification(qual.id, 'name', e.target.value)}
+                  disabled={!isEditing}
                 />
               </div>
               <div className="form-group">
@@ -346,6 +354,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={qual.areaOfStudy}
                   onChange={(e) => updateQualification(qual.id, 'areaOfStudy', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Area</option>
                   {studyAreas.map(area => (
@@ -362,6 +371,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                   type="date"
                   value={qual.completionDate}
                   onChange={(e) => updateQualification(qual.id, 'completionDate', e.target.value)}
+                  disabled={!isEditing}
                 />
               </div>
               <div className="form-group">
@@ -369,6 +379,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={qual.status}
                   onChange={(e) => updateQualification(qual.id, 'status', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Status</option>
                   {qualificationStatuses.map(status => (
@@ -389,6 +400,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                       value="Yes"
                       checked={qual.certificateAvailable === 'Yes'}
                       onChange={(e) => updateQualification(qual.id, 'certificateAvailable', e.target.value)}
+                      disabled={!isEditing}
                     />
                     Yes
                   </label>
@@ -399,6 +411,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                       value="No"
                       checked={qual.certificateAvailable === 'No'}
                       onChange={(e) => updateQualification(qual.id, 'certificateAvailable', e.target.value)}
+                      disabled={!isEditing}
                     />
                     No
                   </label>
@@ -409,6 +422,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                       value="Unsure"
                       checked={qual.certificateAvailable === 'Unsure'}
                       onChange={(e) => updateQualification(qual.id, 'certificateAvailable', e.target.value)}
+                      disabled={!isEditing}
                     />
                     Unsure
                   </label>
@@ -417,10 +431,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
             </div>
           </div>
         ))}
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="btn btn-primary add-button"
           onClick={addQualification}
+          disabled={!isEditing}
         >
           Add Qualification
         </button>
@@ -432,10 +447,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
           <div key={training.id} className="repeatable-section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <h4>Training {index + 1}</h4>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-danger"
                 onClick={() => removeTraining(training.id)}
+                disabled={!isEditing}
               >
                 Remove
               </button>
@@ -448,6 +464,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                   type="text"
                   value={training.courseName}
                   onChange={(e) => updateTraining(training.id, 'courseName', e.target.value)}
+                  disabled={!isEditing}
                   required
                 />
               </div>
@@ -461,6 +478,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                       value="Yes"
                       checked={training.certificateAvailable === 'Yes'}
                       onChange={(e) => updateTraining(training.id, 'certificateAvailable', e.target.value)}
+                      disabled={!isEditing}
                     />
                     Yes
                   </label>
@@ -471,6 +489,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                       value="No"
                       checked={training.certificateAvailable === 'No'}
                       onChange={(e) => updateTraining(training.id, 'certificateAvailable', e.target.value)}
+                      disabled={!isEditing}
                     />
                     No
                   </label>
@@ -479,10 +498,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
             </div>
           </div>
         ))}
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="btn btn-primary add-button"
           onClick={addTraining}
+          disabled={!isEditing}
         >
           Add Training
         </button>
@@ -494,10 +514,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
           <div key={skill.id} className="repeatable-section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <h4>Skill {index + 1}</h4>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-danger"
                 onClick={() => removeSkill(skill.id)}
+                disabled={!isEditing}
               >
                 Remove
               </button>
@@ -509,6 +530,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={skill.skill}
                   onChange={(e) => updateSkill(skill.id, 'skill', e.target.value)}
+                  disabled={!isEditing}
                   required
                 >
                   <option value="">Select Skill</option>
@@ -522,6 +544,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={skill.rating}
                   onChange={(e) => updateSkill(skill.id, 'rating', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Rating</option>
                   {ratings.map(rating => (
@@ -532,10 +555,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
             </div>
           </div>
         ))}
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="btn btn-primary add-button"
           onClick={addSkill}
+          disabled={!isEditing}
         >
           Add Skill
         </button>
@@ -547,10 +571,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
           <div key={competency.id} className="repeatable-section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <h4>Competency {index + 1}</h4>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-danger"
                 onClick={() => removeCompetency(competency.id)}
+                disabled={!isEditing}
               >
                 Remove
               </button>
@@ -562,6 +587,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={competency.competency}
                   onChange={(e) => updateCompetency(competency.id, 'competency', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Competency</option>
                   {competenciesList.map(competencyName => (
@@ -574,6 +600,7 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={competency.rating}
                   onChange={(e) => updateCompetency(competency.id, 'rating', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Rating</option>
                   {ratings.map(rating => (
@@ -584,10 +611,11 @@ const SkillsComp: React.FC<SkillsCompProps> = ({ data, onDataUpdate }) => {
             </div>
           </div>
         ))}
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="btn btn-primary add-button"
           onClick={addCompetency}
+          disabled={!isEditing}
         >
           Add Competency
         </button>

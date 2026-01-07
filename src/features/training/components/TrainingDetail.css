@@ -1,0 +1,388 @@
+/* Training Detail Component Styles */
+
+.training-detail-page {
+  /* Inherits from base page styles */
+}
+
+.training-detail-header {
+  /* Inherits from base header styles */
+}
+
+.training-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.training-avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.training-info {
+  min-width: 0;
+}
+
+/* Detail Sections */
+.detail-section {
+  padding: var(--space-5);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.form-group label.required::after {
+  content: '*';
+  color: var(--error-red);
+  margin-left: var(--space-1);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: var(--space-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  transition: border-color 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
+}
+
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Modules Section */
+.modules-section {
+  margin-bottom: var(--space-6);
+}
+
+.modules-section h4 {
+  margin: 0 0 var(--space-4);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+.modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.module-header h5 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.module-duration {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.module-description {
+  margin: 0 0 var(--space-3);
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+.module-assessments h6 {
+  margin: 0 0 var(--space-2);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.module-assessments ul {
+  margin: 0;
+  padding-left: var(--space-4);
+  color: var(--text-muted);
+}
+
+.module-assessments li {
+  margin-bottom: var(--space-1);
+  font-size: 0.875rem;
+}
+
+/* Objectives Section */
+.objectives-section h4 {
+  margin: 0 0 var(--space-4);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+.objectives-list {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.objectives-list li {
+  margin-bottom: var(--space-2);
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+/* Schedules Section */
+.schedules-section h4 {
+  margin: 0 0 var(--space-4);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+.schedules-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.schedule-card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.schedule-header h5 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.schedule-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.schedule-details > div {
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+}
+
+.schedule-details strong {
+  color: var(--text-primary);
+}
+
+/* Participants Section */
+.participants-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.participants-stat {
+  text-align: center;
+  padding: var(--space-4);
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+}
+
+.participants-stat .stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.participants-stat .stat-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Outcomes Section */
+.outcomes-section h4,
+.career-pathways-section h4 {
+  margin: 0 0 var(--space-4);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+.outcomes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.outcome-card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.outcome-card h5 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.outcome-card p {
+  margin: 0 0 var(--space-2);
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+.outcome-code {
+  display: inline-block;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  margin-bottom: var(--space-2);
+}
+
+.industry-recognition {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.industry-recognition strong {
+  color: var(--text-primary);
+}
+
+/* Career Pathways */
+.pathways-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.pathway-tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--info-blue);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--space-6);
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+}
+
+.empty-state h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .training-identity {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-3);
+  }
+
+  .training-avatar-large {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .schedule-header,
+  .module-header {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .participants-summary {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .detail-section {
+    padding: var(--space-4);
+  }
+}

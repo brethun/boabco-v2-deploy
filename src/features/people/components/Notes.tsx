@@ -12,9 +12,10 @@ interface Note {
 interface NotesProps {
   data: any;
   onDataUpdate: (data: any) => void;
+  isEditing?: boolean;
 }
 
-const Notes: React.FC<NotesProps> = ({ data, onDataUpdate }) => {
+const Notes: React.FC<NotesProps> = ({ data, onDataUpdate, isEditing = false }) => {
   const [notes, setNotes] = useState<Note[]>(data.notes || []);
   const [newNoteContent, setNewNoteContent] = useState('');
 
@@ -78,17 +79,18 @@ const Notes: React.FC<NotesProps> = ({ data, onDataUpdate }) => {
             <textarea
               value={newNoteContent}
               onChange={(e) => setNewNoteContent(e.target.value)}
+              disabled={!isEditing}
               rows={4}
               placeholder="Enter your note here..."
               required
             />
           </div>
         </div>
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="btn btn-primary"
           onClick={addNote}
-          disabled={!newNoteContent.trim()}
+          disabled={!isEditing || !newNoteContent.trim()}
         >
           Add Note
         </button>
@@ -114,16 +116,18 @@ const Notes: React.FC<NotesProps> = ({ data, onDataUpdate }) => {
                     <select
                       value={note.status}
                       onChange={(e) => updateNoteStatus(note.id, e.target.value)}
+                      disabled={!isEditing}
                       className="note-status-select"
                     >
                       <option value="Active">Active</option>
                       <option value="Resolved">Resolved</option>
                       <option value="Archived">Archived</option>
                     </select>
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       className="btn btn-danger btn-sm"
                       onClick={() => deleteNote(note.id)}
+                      disabled={!isEditing}
                     >
                       Delete
                     </button>

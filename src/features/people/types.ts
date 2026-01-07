@@ -115,6 +115,57 @@ export interface ProfileSnapshot {
   preferredIndustries: string[];
 }
 
+export interface SurveyItem {
+  id: string;
+  title: string;
+  date: string;
+  referralData?: ReferralData;
+}
+
+export interface ReferralData {
+  referralPathway: string;
+  clientFirstName: string;
+  clientLastName: string;
+  clientPhoneNumber: string;
+  clientEmail: string;
+  clientAPP: string;
+  clientGender: string;
+}
+
+export interface ReferralItem {
+  id: string;
+  title: string;
+  organization: string;
+  referredDate: string;
+  lastUpdated: string;
+}
+
+export interface ReferralSlipData {
+  responseId: string;
+  referralId: string;
+  organizationName: string;
+  organizationSubtitle: string;
+  serviceDate: string;
+  serviceType: string;
+  clientName: string;
+  clientEmail: string;
+  serviceProvider: string;
+  servicesOffered: string;
+  contactInformation: string;
+  serviceLocation: string;
+  notes: string;
+}
+
+export interface HistoryItem {
+  id: string;
+  date: string;
+  time: string;
+  action: string;
+  details: string;
+  performedBy: string;
+  type: string;
+}
+
 export interface PersonSummary {
   id: string;
   fullName: string;
@@ -135,6 +186,9 @@ export interface PersonRecord {
   recommendations: RecommendationRecord[];
   notes: NoteRecord[];
   profile: ProfileSnapshot;
+  surveys: SurveyItem[];
+  referrals: ReferralItem[];
+  history: HistoryItem[];
 }
 
 export type PeopleTabSection = Exclude<keyof PersonRecord, 'id' | 'engagementStatus'>;
@@ -188,5 +242,8 @@ export const createEmptyPersonRecord = (): PersonRecord => ({
     summary: '',
     aspirations: '',
     preferredIndustries: []
-  }
+  },
+  surveys: [],
+  referrals: [],
+  history: []
 });

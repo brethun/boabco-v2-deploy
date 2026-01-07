@@ -13,6 +13,8 @@ import Business from './features/business/components/Business';
 import Campaigns from './features/campaigns/components/Campaigns';
 import Referrals from './features/referrals/components/Referrals';
 import ServiceProviders from './features/service-providers/components/ServiceProviders';
+import Jobs from './features/jobs/components/Jobs';
+import Training from './features/training/components/Training';
 
 const App: React.FC = () => {
   return (
@@ -28,18 +30,8 @@ const App: React.FC = () => {
             <Route path="campaigns" element={<Campaigns />} />
             <Route path="referrals" element={<Referrals />} />
             <Route path="service-providers" element={<ServiceProviders />} />
-            <Route
-              path="jobs"
-              element={
-                <ComingSoon title="Jobs" message="Job management functionality coming soon." />
-              }
-            />
-            <Route
-              path="training"
-              element={
-                <ComingSoon title="Training" message="Training management tools are on the roadmap." />
-              }
-            />
+            <Route path="jobs" element={<Jobs />} />
+            <Route path="training" element={<Training />} />
             <Route
               path="analytics"
               element={

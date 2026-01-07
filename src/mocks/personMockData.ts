@@ -140,7 +140,43 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Experienced equipment operator with strong safety leadership and mentoring skills.',
       aspirations: 'Progress into a supervisory role within mining operations.',
       preferredIndustries: ['Mining', 'Logistics']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-1',
+        title: 'Emergency Relief Referral',
+        date: '2024-12-12 at 10:30 AM',
+        referralData: {
+          referralPathway: 'Walk In',
+          clientFirstName: 'Taylor',
+          clientLastName: 'Mitchell',
+          clientPhoneNumber: '08 9123 4567',
+          clientEmail: 'taylor.mitchell@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Female'
+        }
+      }
+    ],
+    referrals: [
+      {
+        id: '#24851',
+        title: 'Referral #24851',
+        organization: 'Wunan SP',
+        referredDate: '2024-07-28 at 2:13 AM',
+        lastUpdated: '2024-07-28 at 2:13 AM'
+      }
+    ],
+    history: [
+      {
+        id: 'hist-1',
+        date: '2024-07-27',
+        time: '2:30 PM',
+        action: 'Profile Created',
+        details: 'Initial profile created with basic information and contact details.',
+        performedBy: 'System Admin',
+        type: 'status_change'
+      }
+    ]
   },
   {
     id: 'person-2',
@@ -270,7 +306,39 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Emerging mining engineer passionate about integrating cultural knowledge into closure planning.',
       aspirations: 'Secure a rotational role that supports regenerative mine closure.',
       preferredIndustries: ['Mining', 'Environmental Services']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-2',
+        title: 'Employment Support Survey',
+        date: '2024-11-15 at 2:15 PM',
+        referralData: {
+          referralPathway: 'Phone In',
+          clientFirstName: 'Jordan',
+          clientLastName: 'Chen',
+          clientPhoneNumber: '08 9234 5678',
+          clientEmail: 'jordan.chen@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Male'
+        }
+      },
+      {
+        id: 'survey-3',
+        title: 'Training Needs Assessment',
+        date: '2024-10-08 at 9:45 AM',
+        referralData: {
+          referralPathway: 'Agency Referred',
+          clientFirstName: 'Jordan',
+          clientLastName: 'Chen',
+          clientPhoneNumber: '08 9234 5678',
+          clientEmail: 'jordan.chen@example.com',
+          clientAPP: 'Survey not completed',
+          clientGender: 'Male'
+        }
+      }
+    ],
+    referrals: [],
+    history: []
   },
   {
     id: 'person-3',
@@ -401,7 +469,25 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Entrepreneurial community leader supporting cultural catering ventures and youth training.',
       aspirations: 'Expand catering business and mentor youth in enterprise pathways.',
       preferredIndustries: ['Hospitality', 'Community Services']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-4',
+        title: 'Community Services Referral',
+        date: '2024-09-22 at 11:20 AM',
+        referralData: {
+          referralPathway: 'Walk In',
+          clientFirstName: 'Casey',
+          clientLastName: 'Williams',
+          clientPhoneNumber: '08 9345 6789',
+          clientEmail: 'casey.williams@example.com',
+          clientAPP: 'Name Shared',
+          clientGender: 'Gender Diverse'
+        }
+      }
+    ],
+    referrals: [],
+    history: []
   },
   {
     id: 'person-4',
@@ -531,7 +617,53 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Seasoned civil plant operator seeking pathways into site supervision back on country.',
       aspirations: 'Secure full-time civil works role with mentoring into leadership.',
       preferredIndustries: ['Civil Construction', 'Community Services']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-5',
+        title: 'Emergency Relief Referral',
+        date: '2024-12-01 at 3:30 PM',
+        referralData: {
+          referralPathway: 'Agency Referred',
+          clientFirstName: 'Riley',
+          clientLastName: 'Anderson',
+          clientPhoneNumber: '08 9456 7890',
+          clientEmail: 'riley.anderson@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Not Stated'
+        }
+      },
+      {
+        id: 'survey-6',
+        title: 'Employment Pathways Survey',
+        date: '2024-10-18 at 10:15 AM',
+        referralData: {
+          referralPathway: 'Phone In',
+          clientFirstName: 'Riley',
+          clientLastName: 'Anderson',
+          clientPhoneNumber: '08 9456 7890',
+          clientEmail: 'riley.anderson@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Not Stated'
+        }
+      },
+      {
+        id: 'survey-7',
+        title: 'Skills Development Assessment',
+        date: '2024-08-25 at 1:45 PM',
+        referralData: {
+          referralPathway: 'Walk In',
+          clientFirstName: 'Riley',
+          clientLastName: 'Anderson',
+          clientPhoneNumber: '08 9456 7890',
+          clientEmail: 'riley.anderson@example.com',
+          clientAPP: 'Survey not completed',
+          clientGender: 'Not Stated'
+        }
+      }
+    ],
+    referrals: [],
+    history: []
   }
 ];
 
