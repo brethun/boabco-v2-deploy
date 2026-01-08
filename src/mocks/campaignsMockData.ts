@@ -59,6 +59,56 @@ export const initialCampaignRecords: CampaignData[] = [
     targetAudience: 'Kimberley Communities',
     budget: '$22,000',
     responses: 342
+  },
+  {
+    id: '6',
+    name: 'Employment Pathways Survey 2024',
+    status: 'Completed',
+    startDate: '2024-01-15',
+    endDate: '2024-04-30',
+    targetAudience: 'Job Seekers',
+    budget: '$12,000',
+    responses: 189
+  },
+  {
+    id: '7',
+    name: 'Skills Assessment Program',
+    status: 'Active',
+    startDate: '2025-02-01',
+    endDate: '2025-09-30',
+    targetAudience: 'Working Age Adults',
+    budget: '$35,000',
+    responses: 156
+  },
+  {
+    id: '8',
+    name: 'Training Needs Analysis 2025',
+    status: 'Planning',
+    startDate: '2025-09-01',
+    endDate: '2025-11-30',
+    targetAudience: 'Employers and Job Seekers',
+    budget: '$18,000',
+    responses: 0
+  },
+  {
+    id: '9',
+    name: 'Community Health Survey 2024',
+    status: 'Completed',
+    startDate: '2024-06-01',
+    endDate: '2024-08-31',
+    targetAudience: 'All Community Members',
+    budget: '$28,000',
+    responses: 423
+  },
+  {
+    id: '10',
+    name: 'Business Support Program',
+    status: 'Completed',
+    startDate: '2024-09-01',
+    endDate: '2024-12-31',
+    targetAudience: 'Indigenous Business Owners',
+    budget: '$45,000',
+    responses: 67
   }
 ];
 

@@ -7,6 +7,7 @@ import businessReducer from '../features/business/businessSlice';
 import campaignsReducer from '../features/campaigns/campaignsSlice';
 import referralsReducer from '../features/referrals/referralsSlice';
 import serviceProvidersReducer from '../features/service-providers/serviceProvidersSlice';
+import analyticsReducer from '../features/analytics/analyticsSlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
     business: businessReducer,
     campaigns: campaignsReducer,
     referrals: referralsReducer,
-    serviceProviders: serviceProvidersReducer
+    serviceProviders: serviceProvidersReducer,
+    analytics: analyticsReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

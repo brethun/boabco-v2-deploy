@@ -253,6 +253,166 @@ export const initialReferralRecords: ReferralData[] = [
         type: 'status_change'
       }
     ]
+  },
+  {
+    id: 'Referral #24850',
+    title: 'Referral #24850',
+    assignee: '54 Reasons',
+    status: 'In Progress',
+    referred: 'Aug 15, 10:30',
+    lastUpdated: 'Aug 20, 14:22',
+    contactDetails: {
+      name: 'James Cooper',
+      email: 'james.cooper@54reasons.org.au',
+      phone: '+61 8 9192 4567',
+      company: '54 Reasons',
+      position: 'Employment Consultant',
+      linkedIn: '',
+      address: { street: '45 Short Street', suburb: 'Broome', state: 'WA', postcode: '6725' },
+      notes: 'Specializes in youth employment pathways.'
+    },
+    linkedReferrals: [],
+    history: [
+      { id: '20', date: '2024-08-20', time: '2:22 PM', action: 'Initial Assessment Complete', details: 'Skills assessment and career planning session completed.', performedBy: 'James Cooper', type: 'meeting' }
+    ]
+  },
+  {
+    id: 'Referral #24867',
+    title: 'Referral #24867',
+    assignee: 'Wunan SP',
+    status: 'Pending Approval',
+    referred: 'Sep 02, 09:15',
+    lastUpdated: 'Sep 02, 09:15',
+    contactDetails: {
+      name: 'Lisa Brown',
+      email: 'lisa.brown@wunan.org.au',
+      phone: '+61 8 9168 5500',
+      company: 'Wunan Foundation',
+      position: 'Case Manager',
+      linkedIn: '',
+      address: { street: '88 Coolibah Drive', suburb: 'Kununurra', state: 'WA', postcode: '6743' },
+      notes: 'New referral for housing support.'
+    },
+    linkedReferrals: [],
+    history: [
+      { id: '21', date: '2024-09-02', time: '9:15 AM', action: 'Referral Submitted', details: 'New referral for emergency housing assistance.', performedBy: 'Lisa Brown', type: 'status_change' }
+    ]
+  },
+  {
+    id: 'Referral #24890',
+    title: 'Referral #24890',
+    assignee: 'Services Australia',
+    status: 'Complete',
+    response: 'Oct 10, 2024',
+    referred: 'Sep 15, 11:00',
+    lastUpdated: 'Oct 10, 16:30',
+    contactDetails: {
+      name: 'Michelle Taylor',
+      email: 'michelle.taylor@servicesaustralia.gov.au',
+      phone: '+61 2 6213 5000',
+      company: 'Services Australia',
+      position: 'Senior Case Officer',
+      linkedIn: '',
+      address: { street: '70 Northbourne Avenue', suburb: 'Canberra', state: 'ACT', postcode: '2601' },
+      notes: 'Successfully placed into Centrelink support program.'
+    },
+    linkedReferrals: [
+      { id: 'REF-2024-010', title: 'Income Support Application', status: 'Complete', date: '2024-10-10', outcome: 'Approved' }
+    ],
+    history: [
+      { id: '22', date: '2024-10-10', time: '4:30 PM', action: 'Referral Completed', details: 'Income support approved and client enrolled in employment program.', performedBy: 'Michelle Taylor', type: 'status_change' }
+    ]
+  },
+  {
+    id: 'Referral #24912',
+    title: 'Referral #24912',
+    assignee: 'Kit Lim',
+    status: 'In Progress',
+    referred: 'Oct 22, 14:45',
+    lastUpdated: 'Nov 05, 10:00',
+    contactDetails: {
+      name: 'Andrew Kim',
+      email: 'andrew.kim@example.com',
+      phone: '+61 8 9321 4567',
+      company: 'Self-employed',
+      position: 'Diesel Mechanic',
+      linkedIn: '',
+      address: { street: '15 Industrial Road', suburb: 'Kununurra', state: 'WA', postcode: '6743' },
+      notes: 'Seeking employment in mining sector. Has MC licence.'
+    },
+    linkedReferrals: [],
+    history: [
+      { id: '23', date: '2024-11-05', time: '10:00 AM', action: 'Interview Scheduled', details: 'Mining company interview arranged for Nov 12.', performedBy: 'Kit Lim', type: 'communication' }
+    ]
+  },
+  {
+    id: 'Referral #24935',
+    title: 'Referral #24935',
+    assignee: 'Wunan (BH)',
+    status: 'Pending Approval',
+    referred: 'Nov 10, 08:30',
+    lastUpdated: 'Nov 10, 08:30',
+    contactDetails: {
+      name: 'Rachel Green',
+      email: 'rachel.green@wunan.org.au',
+      phone: '+61 8 9168 3881',
+      company: 'Wunan Foundation',
+      position: 'Youth Worker',
+      linkedIn: '',
+      address: { street: '45 Bandicoot Drive', suburb: 'Halls Creek', state: 'WA', postcode: '6770' },
+      notes: 'Youth mentoring program referral.'
+    },
+    linkedReferrals: [],
+    history: [
+      { id: '24', date: '2024-11-10', time: '8:30 AM', action: 'Referral Submitted', details: 'New youth referred for mentoring and employment support.', performedBy: 'Rachel Green', type: 'status_change' }
+    ]
+  },
+  {
+    id: 'Referral #24960',
+    title: 'Referral #24960',
+    assignee: '54 Reasons',
+    status: 'Complete',
+    response: 'Nov 28, 2024',
+    referred: 'Nov 15, 13:20',
+    lastUpdated: 'Nov 28, 15:45',
+    contactDetails: {
+      name: 'Tom Walker',
+      email: 'tom.walker@54reasons.org.au',
+      phone: '+61 8 9192 8800',
+      company: '54 Reasons',
+      position: 'Program Coordinator',
+      linkedIn: '',
+      address: { street: '20 Dampier Terrace', suburb: 'Broome', state: 'WA', postcode: '6725' },
+      notes: 'Training program successfully completed.'
+    },
+    linkedReferrals: [
+      { id: 'REF-2024-015', title: 'Cert II Construction', status: 'Complete', date: '2024-11-28', outcome: 'Qualification obtained' }
+    ],
+    history: [
+      { id: '25', date: '2024-11-28', time: '3:45 PM', action: 'Training Completed', details: 'Client successfully completed Certificate II in Building and Construction.', performedBy: 'Tom Walker', type: 'status_change' }
+    ]
+  },
+  {
+    id: 'Referral #24985',
+    title: 'Referral #24985',
+    assignee: 'Services Australia',
+    status: 'In Progress',
+    referred: 'Dec 01, 09:00',
+    lastUpdated: 'Dec 10, 11:30',
+    contactDetails: {
+      name: 'Karen Mitchell',
+      email: 'karen.mitchell@servicesaustralia.gov.au',
+      phone: '+61 2 6213 6000',
+      company: 'Services Australia',
+      position: 'Employment Services Officer',
+      linkedIn: '',
+      address: { street: '50 Marcus Clarke St', suburb: 'Canberra', state: 'ACT', postcode: '2601' },
+      notes: 'Job seeker registration and support services.'
+    },
+    linkedReferrals: [],
+    history: [
+      { id: '26', date: '2024-12-10', time: '11:30 AM', action: 'Job Plan Created', details: 'Employment pathway plan developed with client.', performedBy: 'Karen Mitchell', type: 'meeting' }
+    ]
   }
 ];
 
