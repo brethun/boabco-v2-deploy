@@ -13,13 +13,13 @@ export const initialPeopleRecords: PersonRecord[] = [
     id: 'person-1',
     engagementStatus: 'Active',
     personalDetails: {
-      firstName: 'Lara',
-      middleName: 'Marie',
-      lastName: 'Davis',
+      firstName: 'Taylor',
+      middleName: 'Jamie',
+      lastName: 'Mitchell',
       dateOfBirth: '1992-04-16',
       gender: 'Female',
-      motherName: 'Karen Davis',
-      fatherName: 'Albert Davis',
+      motherName: 'Kim Mitchell',
+      fatherName: 'Alex Mitchell',
       community: 'Kimberley Region',
       familyGroup: 'Group B',
       driversLicence: 'Yes',
@@ -125,14 +125,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-1',
         content: 'Attended leadership workshop and requested mentorship pairing.',
         timestamp: isoDaysAgo(7),
-        author: 'Samantha Lee',
+        author: 'Alex Smith',
         status: 'Active'
       },
       {
         id: 'note-2',
         content: 'Updated medical clearance paperwork. Available for FIFO roster discussions.',
         timestamp: isoDaysAgo(2),
-        author: 'Michael Grant',
+        author: 'Casey Johnson',
         status: 'Resolved'
       }
     ],
@@ -140,19 +140,55 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Experienced equipment operator with strong safety leadership and mentoring skills.',
       aspirations: 'Progress into a supervisory role within mining operations.',
       preferredIndustries: ['Mining', 'Logistics']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-1',
+        title: 'Emergency Relief Referral',
+        date: '2024-12-12 at 10:30 AM',
+        referralData: {
+          referralPathway: 'Walk In',
+          clientFirstName: 'Taylor',
+          clientLastName: 'Mitchell',
+          clientPhoneNumber: '08 9123 4567',
+          clientEmail: 'taylor.mitchell@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Female'
+        }
+      }
+    ],
+    referrals: [
+      {
+        id: '#24851',
+        title: 'Referral #24851',
+        organization: 'Wunan SP',
+        referredDate: '2024-07-28 at 2:13 AM',
+        lastUpdated: '2024-07-28 at 2:13 AM'
+      }
+    ],
+    history: [
+      {
+        id: 'hist-1',
+        date: '2024-07-27',
+        time: '2:30 PM',
+        action: 'Profile Created',
+        details: 'Initial profile created with basic information and contact details.',
+        performedBy: 'System Admin',
+        type: 'status_change'
+      }
+    ]
   },
   {
     id: 'person-2',
     engagementStatus: 'Prospect',
     personalDetails: {
-      firstName: 'Noah',
-      middleName: 'James',
-      lastName: 'Kelly',
+      firstName: 'Jordan',
+      middleName: 'Lee',
+      lastName: 'Chen',
       dateOfBirth: '1996-08-02',
       gender: 'Male',
-      motherName: 'Marina Kelly',
-      fatherName: 'Patrick Kelly',
+      motherName: 'Sarah Chen',
+      fatherName: 'David Chen',
       community: 'Derby',
       familyGroup: 'Group A',
       driversLicence: 'Yes',
@@ -255,14 +291,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-3',
         content: 'Introduced at careers expo. Keen on roles that blend engineering and traditional land care.',
         timestamp: isoDaysAgo(21),
-        author: 'Jordan Miles',
+        author: 'Taylor Brown',
         status: 'Active'
       },
       {
         id: 'note-4',
         content: 'Sent through updated resume and references after site visit.',
         timestamp: isoDaysAgo(5),
-        author: 'Jordan Miles',
+        author: 'Taylor Brown',
         status: 'Active'
       }
     ],
@@ -270,19 +306,51 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Emerging mining engineer passionate about integrating cultural knowledge into closure planning.',
       aspirations: 'Secure a rotational role that supports regenerative mine closure.',
       preferredIndustries: ['Mining', 'Environmental Services']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-2',
+        title: 'Employment Support Survey',
+        date: '2024-11-15 at 2:15 PM',
+        referralData: {
+          referralPathway: 'Phone In',
+          clientFirstName: 'Jordan',
+          clientLastName: 'Chen',
+          clientPhoneNumber: '08 9234 5678',
+          clientEmail: 'jordan.chen@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Male'
+        }
+      },
+      {
+        id: 'survey-3',
+        title: 'Training Needs Assessment',
+        date: '2024-10-08 at 9:45 AM',
+        referralData: {
+          referralPathway: 'Agency Referred',
+          clientFirstName: 'Jordan',
+          clientLastName: 'Chen',
+          clientPhoneNumber: '08 9234 5678',
+          clientEmail: 'jordan.chen@example.com',
+          clientAPP: 'Survey not completed',
+          clientGender: 'Male'
+        }
+      }
+    ],
+    referrals: [],
+    history: []
   },
   {
     id: 'person-3',
     engagementStatus: 'Active',
     personalDetails: {
-      firstName: 'Aaliyah',
-      middleName: 'Rose',
-      lastName: 'Thompson',
+      firstName: 'Casey',
+      middleName: 'Morgan',
+      lastName: 'Williams',
       dateOfBirth: '1988-11-30',
       gender: 'Female',
-      motherName: 'Gloria Thompson',
-      fatherName: 'Peter Thompson',
+      motherName: 'Lisa Williams',
+      fatherName: 'Mark Williams',
       community: 'Kununurra',
       familyGroup: 'Group D',
       driversLicence: 'Yes',
@@ -386,14 +454,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-5',
         content: 'Preparing capability statement for local government procurement team.',
         timestamp: isoDaysAgo(9),
-        author: 'Priya Nair',
+        author: 'Jordan Davis',
         status: 'Active'
       },
       {
         id: 'note-6',
         content: 'Needs guidance on bookkeeping software migration.',
         timestamp: isoDaysAgo(4),
-        author: 'Priya Nair',
+        author: 'Jordan Davis',
         status: 'Active'
       }
     ],
@@ -401,19 +469,37 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Entrepreneurial community leader supporting cultural catering ventures and youth training.',
       aspirations: 'Expand catering business and mentor youth in enterprise pathways.',
       preferredIndustries: ['Hospitality', 'Community Services']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-4',
+        title: 'Community Services Referral',
+        date: '2024-09-22 at 11:20 AM',
+        referralData: {
+          referralPathway: 'Walk In',
+          clientFirstName: 'Casey',
+          clientLastName: 'Williams',
+          clientPhoneNumber: '08 9345 6789',
+          clientEmail: 'casey.williams@example.com',
+          clientAPP: 'Name Shared',
+          clientGender: 'Gender Diverse'
+        }
+      }
+    ],
+    referrals: [],
+    history: []
   },
   {
     id: 'person-4',
     engagementStatus: 'Re-engaging',
     personalDetails: {
-      firstName: 'Ethan',
-      middleName: 'Mathew',
-      lastName: 'Wright',
+      firstName: 'Riley',
+      middleName: 'Cameron',
+      lastName: 'Anderson',
       dateOfBirth: '1984-03-22',
       gender: 'Male',
-      motherName: 'Leah Wright',
-      fatherName: 'Morgan Wright',
+      motherName: 'Emma Anderson',
+      fatherName: 'Chris Anderson',
       community: 'Fitzroy Crossing',
       familyGroup: 'Group C',
       driversLicence: 'Yes',
@@ -516,14 +602,14 @@ export const initialPeopleRecords: PersonRecord[] = [
         id: 'note-7',
         content: 'Re-engaged after time interstate. Keen on supervisory pathways if support available.',
         timestamp: isoDaysAgo(16),
-        author: 'Kara Wilson',
+        author: 'Riley Martinez',
         status: 'Active'
       },
       {
         id: 'note-8',
         content: 'Awaiting confirmation of medical clearance appointment.',
         timestamp: isoDaysAgo(3),
-        author: 'Kara Wilson',
+        author: 'Riley Martinez',
         status: 'Pending'
       }
     ],
@@ -531,7 +617,53 @@ export const initialPeopleRecords: PersonRecord[] = [
       summary: 'Seasoned civil plant operator seeking pathways into site supervision back on country.',
       aspirations: 'Secure full-time civil works role with mentoring into leadership.',
       preferredIndustries: ['Civil Construction', 'Community Services']
-    }
+    },
+    surveys: [
+      {
+        id: 'survey-5',
+        title: 'Emergency Relief Referral',
+        date: '2024-12-01 at 3:30 PM',
+        referralData: {
+          referralPathway: 'Agency Referred',
+          clientFirstName: 'Riley',
+          clientLastName: 'Anderson',
+          clientPhoneNumber: '08 9456 7890',
+          clientEmail: 'riley.anderson@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Not Stated'
+        }
+      },
+      {
+        id: 'survey-6',
+        title: 'Employment Pathways Survey',
+        date: '2024-10-18 at 10:15 AM',
+        referralData: {
+          referralPathway: 'Phone In',
+          clientFirstName: 'Riley',
+          clientLastName: 'Anderson',
+          clientPhoneNumber: '08 9456 7890',
+          clientEmail: 'riley.anderson@example.com',
+          clientAPP: 'Survey completed',
+          clientGender: 'Not Stated'
+        }
+      },
+      {
+        id: 'survey-7',
+        title: 'Skills Development Assessment',
+        date: '2024-08-25 at 1:45 PM',
+        referralData: {
+          referralPathway: 'Walk In',
+          clientFirstName: 'Riley',
+          clientLastName: 'Anderson',
+          clientPhoneNumber: '08 9456 7890',
+          clientEmail: 'riley.anderson@example.com',
+          clientAPP: 'Survey not completed',
+          clientGender: 'Not Stated'
+        }
+      }
+    ],
+    referrals: [],
+    history: []
   }
 ];
 

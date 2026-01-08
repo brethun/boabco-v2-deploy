@@ -4,9 +4,10 @@ import './Recommendations.css';
 interface RecommendationsProps {
   data: any;
   onDataUpdate: (data: any) => void;
+  isEditing?: boolean;
 }
 
-const Recommendations: React.FC<RecommendationsProps> = ({ data }) => {
+const Recommendations: React.FC<RecommendationsProps> = ({ data, isEditing = false }) => {
   const qualificationRecommendations = [
     {
       id: 1,
@@ -92,7 +93,7 @@ const Recommendations: React.FC<RecommendationsProps> = ({ data }) => {
                   Duration: {recommendation.timeToComplete}
                 </span>
               </div>
-              <button className="btn btn-primary">View Details</button>
+              <button className="btn btn-primary" disabled={!isEditing}>View Details</button>
             </div>
           ))}
         </div>
@@ -123,7 +124,7 @@ const Recommendations: React.FC<RecommendationsProps> = ({ data }) => {
                   ))}
                 </ul>
               </div>
-              <button className="btn btn-primary">Explore Role</button>
+              <button className="btn btn-primary" disabled={!isEditing}>Explore Role</button>
             </div>
           ))}
         </div>

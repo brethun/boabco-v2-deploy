@@ -35,9 +35,10 @@ interface PersonalDetailsData {
 interface PersonalDetailsProps {
   data: any;
   onDataUpdate: (data: any) => void;
+  isEditing?: boolean;
 }
 
-const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate }) => {
+const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate, isEditing = false }) => {
   const buildFormState = (source: any): PersonalDetailsData => ({
     firstName: source?.firstName || '',
     middleName: source?.middleName || '',
@@ -101,6 +102,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.firstName}
               onChange={(e) => handleInputChange('firstName', e.target.value)}
+              disabled={!isEditing}
               required
             />
           </div>
@@ -110,6 +112,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.middleName}
               onChange={(e) => handleInputChange('middleName', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
           <div className="form-group">
@@ -118,6 +121,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.lastName}
               onChange={(e) => handleInputChange('lastName', e.target.value)}
+              disabled={!isEditing}
               required
             />
           </div>
@@ -130,6 +134,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="date"
               value={formData.dateOfBirth}
               onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
+              disabled={!isEditing}
               required
             />
           </div>
@@ -143,6 +148,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Male"
                   checked={formData.gender === 'Male'}
                   onChange={(e) => handleInputChange('gender', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Male
               </label>
@@ -153,6 +159,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Female"
                   checked={formData.gender === 'Female'}
                   onChange={(e) => handleInputChange('gender', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Female
               </label>
@@ -163,6 +170,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Other"
                   checked={formData.gender === 'Other'}
                   onChange={(e) => handleInputChange('gender', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Other
               </label>
@@ -177,6 +185,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.motherName}
               onChange={(e) => handleInputChange('motherName', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
           <div className="form-group">
@@ -185,6 +194,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.fatherName}
               onChange={(e) => handleInputChange('fatherName', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
         </div>
@@ -196,6 +206,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.community}
               onChange={(e) => handleInputChange('community', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
           <div className="form-group">
@@ -203,6 +214,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
             <select
               value={formData.familyGroup}
               onChange={(e) => handleInputChange('familyGroup', e.target.value)}
+              disabled={!isEditing}
               required
             >
               <option value="">Select Family Group</option>
@@ -227,6 +239,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.driversLicence === 'Yes'}
                   onChange={(e) => handleInputChange('driversLicence', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -237,6 +250,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.driversLicence === 'No'}
                   onChange={(e) => handleInputChange('driversLicence', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -252,6 +266,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                 type="text"
                 value={formData.driversLicenceNumber}
                 onChange={(e) => handleInputChange('driversLicenceNumber', e.target.value)}
+                disabled={!isEditing}
               />
             </div>
             <div className="form-group">
@@ -260,6 +275,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                 type="date"
                 value={formData.driversLicenceExpiry}
                 onChange={(e) => handleInputChange('driversLicenceExpiry', e.target.value)}
+                disabled={!isEditing}
               />
             </div>
           </div>
@@ -276,6 +292,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.policeClearanceEligible === 'Yes'}
                   onChange={(e) => handleInputChange('policeClearanceEligible', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -286,6 +303,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.policeClearanceEligible === 'No'}
                   onChange={(e) => handleInputChange('policeClearanceEligible', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -301,6 +319,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.medicalClearanceEligible === 'Yes'}
                   onChange={(e) => handleInputChange('medicalClearanceEligible', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -311,6 +330,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.medicalClearanceEligible === 'No'}
                   onChange={(e) => handleInputChange('medicalClearanceEligible', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -332,6 +352,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.committeeRepresentative === 'Yes'}
                   onChange={(e) => handleInputChange('committeeRepresentative', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -342,6 +363,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.committeeRepresentative === 'No'}
                   onChange={(e) => handleInputChange('committeeRepresentative', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -357,6 +379,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.interestedInClosureWork === 'Yes'}
                   onChange={(e) => handleInputChange('interestedInClosureWork', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -367,6 +390,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.interestedInClosureWork === 'No'}
                   onChange={(e) => handleInputChange('interestedInClosureWork', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -385,6 +409,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.familyDependants === 'Yes'}
                   onChange={(e) => handleInputChange('familyDependants', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -395,6 +420,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.familyDependants === 'No'}
                   onChange={(e) => handleInputChange('familyDependants', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -410,6 +436,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.openToFIFO === 'Yes'}
                   onChange={(e) => handleInputChange('openToFIFO', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -420,6 +447,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.openToFIFO === 'No'}
                   onChange={(e) => handleInputChange('openToFIFO', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -438,6 +466,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.additionalSupportNeeded === 'Yes'}
                   onChange={(e) => handleInputChange('additionalSupportNeeded', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -448,6 +477,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.additionalSupportNeeded === 'No'}
                   onChange={(e) => handleInputChange('additionalSupportNeeded', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -463,6 +493,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="Yes"
                   checked={formData.anyDifficulties === 'Yes'}
                   onChange={(e) => handleInputChange('anyDifficulties', e.target.value)}
+                  disabled={!isEditing}
                 />
                 Yes
               </label>
@@ -473,6 +504,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
                   value="No"
                   checked={formData.anyDifficulties === 'No'}
                   onChange={(e) => handleInputChange('anyDifficulties', e.target.value)}
+                  disabled={!isEditing}
                 />
                 No
               </label>
@@ -490,6 +522,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.streetAddress1}
               onChange={(e) => handleInputChange('streetAddress1', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
         </div>
@@ -500,6 +533,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.streetAddress2}
               onChange={(e) => handleInputChange('streetAddress2', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
         </div>
@@ -510,6 +544,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.suburb}
               onChange={(e) => handleInputChange('suburb', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
           <div className="form-group">
@@ -518,6 +553,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.state}
               onChange={(e) => handleInputChange('state', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
           <div className="form-group">
@@ -526,6 +562,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.postcode}
               onChange={(e) => handleInputChange('postcode', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
         </div>
@@ -539,6 +576,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
             <textarea
               value={formData.culturalRequirements}
               onChange={(e) => handleInputChange('culturalRequirements', e.target.value)}
+              disabled={!isEditing}
               rows={3}
             />
           </div>
@@ -550,6 +588,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
               type="text"
               value={formData.trainingTypeInterest}
               onChange={(e) => handleInputChange('trainingTypeInterest', e.target.value)}
+              disabled={!isEditing}
             />
           </div>
         </div>
@@ -559,6 +598,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
             <textarea
               value={formData.personalContext}
               onChange={(e) => handleInputChange('personalContext', e.target.value)}
+              disabled={!isEditing}
               rows={4}
             />
           </div>
@@ -569,6 +609,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({ data, onDataUpdate })
             <textarea
               value={formData.generalInformation}
               onChange={(e) => handleInputChange('generalInformation', e.target.value)}
+              disabled={!isEditing}
               rows={4}
             />
           </div>

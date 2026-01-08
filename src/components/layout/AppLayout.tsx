@@ -11,7 +11,6 @@ interface NavigationItem {
 
 const navigationItems: NavigationItem[] = [
   { path: '/people', label: 'People', exact: true },
-  { path: '/people-bby', label: 'People BBY' },
   { path: '/business', label: 'Businesses' },
   { path: '/campaigns', label: 'Campaigns' },
   { path: '/referrals', label: 'Referrals' },

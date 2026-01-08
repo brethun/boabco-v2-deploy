@@ -75,8 +75,8 @@ export const initialBusinessRecords: BusinessData[] = [
   {
     id: '1',
     businessName: 'Aboriginal Construction Services',
-    abn: '12 345 678 901',
-    acn: 'ACN 123 456 789',
+    abn: '11 111 111 111',
+    acn: 'ACN 111 111 111',
     community: 'Kimberley Region',
     website: 'https://acs-construction.com.au',
     generalInformation: 'Leading indigenous construction company specializing in remote area projects.',
@@ -94,15 +94,15 @@ export const initialBusinessRecords: BusinessData[] = [
       postcode: '6725'
     },
     contact: {
-      primaryContactName: 'John Lawson',
+      primaryContactName: 'Test User A',
       title: 'Mr',
       contactNumber: '08 9192 1234',
-      email: 'john.lawson@acs-construction.com.au',
+      email: 'testuser.a@acs-construction.com.au',
       contactType: 'General Manager'
     },
     directors: [
-      { id: '1', title: 'Managing Director', name: 'Sarah Wilson' },
-      { id: '2', title: 'Operations Director', name: 'Michael Brown' }
+      { id: '1', title: 'Managing Director', name: 'Test Director A' },
+      { id: '2', title: 'Operations Director', name: 'Test Director B' }
     ],
     workforce: {
       employeeNumber: '25-50',
@@ -147,8 +147,8 @@ export const initialBusinessRecords: BusinessData[] = [
   {
     id: '2',
     businessName: 'Pilbara Mining Services',
-    abn: '98 765 432 109',
-    acn: 'ACN 987 654 321',
+    abn: '22 222 222 222',
+    acn: 'ACN 222 222 222',
     community: 'Pilbara Region',
     website: 'https://pilbaramining.com.au',
     generalInformation: 'Specialized mining support services for the Pilbara region.',
@@ -166,14 +166,14 @@ export const initialBusinessRecords: BusinessData[] = [
       postcode: '6714'
     },
     contact: {
-      primaryContactName: 'David Thompson',
+      primaryContactName: 'Test User B',
       title: 'Mr',
       contactNumber: '08 9144 5678',
-      email: 'david.thompson@pilbaramining.com.au',
+      email: 'testuser.b@pilbaramining.com.au',
       contactType: 'Operations Manager'
     },
     directors: [
-      { id: '1', title: 'Chief Executive Officer', name: 'Linda Thompson' }
+      { id: '1', title: 'Chief Executive Officer', name: 'Test Director C' }
     ],
     workforce: {
       employeeNumber: '50-100',

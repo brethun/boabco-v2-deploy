@@ -4,9 +4,10 @@ import './MyProfile.css';
 interface MyProfileProps {
   data: any;
   onDataUpdate: (data: any) => void;
+  isEditing?: boolean;
 }
 
-const MyProfile: React.FC<MyProfileProps> = ({ data }) => {
+const MyProfile: React.FC<MyProfileProps> = ({ data, isEditing = false }) => {
   const [profileImage, setProfileImage] = useState<string>('');
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -75,7 +76,7 @@ const MyProfile: React.FC<MyProfileProps> = ({ data }) => {
               onChange={handleImageUpload}
               style={{ display: 'none' }}
             />
-            <label htmlFor="profile-image-upload" className="btn btn-secondary">
+            <label htmlFor="profile-image-upload" className="btn btn-secondary" style={{ pointerEvents: !isEditing ? 'none' : 'auto', opacity: !isEditing ? 0.5 : 1 }}>
               Upload Image
             </label>
           </div>

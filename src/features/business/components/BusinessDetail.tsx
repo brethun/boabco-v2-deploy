@@ -880,126 +880,162 @@ const BusinessDetail: React.FC<BusinessDetailProps> = ({ business, onBack, onSav
   );
 
   const renderProfile = () => (
-    <div className="profile-dashboard">
-      <div className="dashboard-grid">
-        <div className="dashboard-card">
+    <div className="business-profile-tab">
+      <div className="profile-header-business">
+        <div className="profile-image-section-business">
+          <div className="profile-image-container-business">
+            <div className="profile-image-placeholder-business">
+              <span>Business Logo</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="profile-summary-business">
+          <h2>{formData.businessName}</h2>
+          <p className="profile-subtitle-business">
+            {formData.industry.primary} • {formData.community}
+          </p>
+          <div className="profile-stats-business">
+            <div className="stat-business">
+              <span className="stat-number-business">{formData.operationLength}</span>
+              <span className="stat-label-business">Years Operating</span>
+            </div>
+            <div className="stat-business">
+              <span className="stat-number-business">{formData.projects.length}</span>
+              <span className="stat-label-business">Current Projects</span>
+            </div>
+            <div className="stat-business">
+              <span className="stat-number-business">{formData.workforce.employeeNumber}</span>
+              <span className="stat-label-business">Employees</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="profile-sections-business">
+        <div className="profile-section-business">
           <h3>Business Summary</h3>
-          <div className="summary-item">
-            <label>Business Name:</label>
-            <span>{formData.businessName}</span>
-          </div>
-          <div className="summary-item">
-            <label>ABN:</label>
-            <span>{formData.abn}</span>
-          </div>
-          <div className="summary-item">
-            <label>Primary Industry:</label>
-            <span>{formData.industry.primary}</span>
-          </div>
-          <div className="summary-item">
-            <label>Community:</label>
-            <span>{formData.community}</span>
-          </div>
-          <div className="summary-item">
-            <label>Operation Length:</label>
-            <span>{formData.operationLength} years</span>
+          <div className="info-grid-business">
+            <div className="info-item-business">
+              <label>Business Name:</label>
+              <span>{formData.businessName}</span>
+            </div>
+            <div className="info-item-business">
+              <label>ABN:</label>
+              <span>{formData.abn}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Primary Industry:</label>
+              <span>{formData.industry.primary}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Community:</label>
+              <span>{formData.community}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Family Group:</label>
+              <span>{formData.familyGroup || 'Not specified'}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Closure Work Interest:</label>
+              <span>{formData.interestedInClosureWork ? 'Yes' : 'No'}</span>
+            </div>
           </div>
         </div>
 
-        <div className="dashboard-card">
+        <div className="profile-section-business">
           <h3>Contact Information</h3>
-          <div className="summary-item">
-            <label>Primary Contact:</label>
-            <span>{formData.contact.primaryContactName}</span>
-          </div>
-          <div className="summary-item">
-            <label>Position:</label>
-            <span>{formData.contact.contactType}</span>
-          </div>
-          <div className="summary-item">
-            <label>Phone:</label>
-            <span>{formData.contact.contactNumber}</span>
-          </div>
-          <div className="summary-item">
-            <label>Email:</label>
-            <span>{formData.contact.email}</span>
-          </div>
-          <div className="summary-item">
-            <label>Location:</label>
-            <span>{formData.address.suburb}, {formData.address.state}</span>
+          <div className="info-grid-business">
+            <div className="info-item-business">
+              <label>Primary Contact:</label>
+              <span>{formData.contact.primaryContactName}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Position:</label>
+              <span>{formData.contact.contactType}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Phone:</label>
+              <span>{formData.contact.contactNumber}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Email:</label>
+              <span>{formData.contact.email}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Location:</label>
+              <span>{formData.address.suburb}, {formData.address.state} {formData.address.postcode}</span>
+            </div>
           </div>
         </div>
 
-        <div className="dashboard-card">
+        <div className="profile-section-business">
           <h3>Workforce & Capabilities</h3>
-          <div className="summary-item">
-            <label>Employee Range:</label>
-            <span>{formData.workforce.employeeNumber}</span>
-          </div>
-          <div className="summary-item">
-            <label>Peak Workforce:</label>
-            <span>{formData.workforce.largestPeakWorkforce} people</span>
-          </div>
-          <div className="summary-item">
-            <label>Equipment Count:</label>
-            <span>{formData.equipment.length} items</span>
-          </div>
-          <div className="summary-item">
-            <label>Closure Work Interest:</label>
-            <span>{formData.interestedInClosureWork ? 'Yes' : 'No'}</span>
-          </div>
-        </div>
-
-        <div className="dashboard-card">
-          <h3>Project Portfolio</h3>
-          <div className="summary-item">
-            <label>Current Projects:</label>
-            <span>{formData.projects.length}</span>
-          </div>
-          <div className="summary-item">
-            <label>Previous Clients:</label>
-            <span>{formData.previousClients.length}</span>
-          </div>
-          <div className="summary-item">
-            <label>Directors:</label>
-            <span>{formData.directors.length}</span>
-          </div>
-          <div className="summary-item">
-            <label>Social Media:</label>
-            <span>{formData.socialMedia.length} platforms</span>
+          <div className="info-grid-business">
+            <div className="info-item-business">
+              <label>Employee Range:</label>
+              <span>{formData.workforce.employeeNumber}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Peak Workforce:</label>
+              <span>{formData.workforce.largestPeakWorkforce} people</span>
+            </div>
+            <div className="info-item-business">
+              <label>Equipment Count:</label>
+              <span>{formData.equipment.length} items</span>
+            </div>
+            <div className="info-item-business">
+              <label>Largest Project:</label>
+              <span>{formData.workforce.largestProjectManaged}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Directors:</label>
+              <span>{formData.directors.length}</span>
+            </div>
+            <div className="info-item-business">
+              <label>Previous Clients:</label>
+              <span>{formData.previousClients.length}</span>
+            </div>
           </div>
         </div>
 
-        <div className="dashboard-card full-width">
+        <div className="profile-section-business">
           <h3>Recent Projects</h3>
           {formData.projects.length > 0 ? (
-            <div className="project-list">
+            <div className="work-summary-business">
               {formData.projects.slice(0, 3).map((project: any) => (
-                <div key={project.id} className="project-summary">
+                <div key={project.id} className="work-item-business">
                   <h4>{project.clientName}</h4>
-                  <p>{project.description}</p>
-                  <div className="project-details">
+                  <p>{project.startDate} - {project.endDate}</p>
+                  {project.description && <p className="work-description-business">{project.description}</p>}
+                  <div className="project-meta-business">
                     <span>Workforce: {project.workforce}</span>
                     <span>Value: ${project.spend?.toLocaleString()}</span>
                   </div>
                 </div>
               ))}
+              {formData.projects.length > 3 && (
+                <p className="more-items-business">+ {formData.projects.length - 3} more projects</p>
+              )}
             </div>
           ) : (
             <p>No current projects</p>
           )}
         </div>
 
-        <div className="dashboard-card full-width">
+        <div className="profile-section-business">
           <h3>Key Previous Clients</h3>
           {formData.previousClients.length > 0 ? (
-            <div className="client-list">
+            <div className="clients-preview-business">
               {formData.previousClients.slice(0, 4).map((client: any) => (
-                <div key={client.id} className="client-summary">
+                <div key={client.id} className="client-preview-business">
                   <h4>{client.clientName}</h4>
                   <p>{client.projectDescription}</p>
                 </div>
               ))}
+              {formData.previousClients.length > 4 && (
+                <p className="more-items-business">+ {formData.previousClients.length - 4} more clients</p>
+              )}
             </div>
           ) : (
             <p>No previous clients recorded</p>

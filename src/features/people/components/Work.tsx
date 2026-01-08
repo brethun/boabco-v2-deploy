@@ -30,9 +30,10 @@ interface WorkExperience {
 interface WorkProps {
   data: any;
   onDataUpdate: (data: any) => void;
+  isEditing?: boolean;
 }
 
-const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
+const Work: React.FC<WorkProps> = ({ data, onDataUpdate, isEditing = false }) => {
   const [workHistory, setWorkHistory] = useState<WorkExperience[]>(data.workHistory || []);
 
   useEffect(() => {
@@ -182,10 +183,11 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
           <div key={work.id} className="repeatable-section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <h4>Job {index + 1}</h4>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-danger"
                 onClick={() => removeWorkExperience(work.id)}
+                disabled={!isEditing}
               >
                 Remove Job
               </button>
@@ -197,6 +199,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={work.jobTitle}
                   onChange={(e) => updateWorkExperience(work.id, 'jobTitle', e.target.value)}
+                  disabled={!isEditing}
                   required
                 >
                   <option value="">Select Job Title</option>
@@ -211,6 +214,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                   type="text"
                   value={work.employer}
                   onChange={(e) => updateWorkExperience(work.id, 'employer', e.target.value)}
+                  disabled={!isEditing}
                   required
                 />
               </div>
@@ -222,6 +226,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={work.startYear}
                   onChange={(e) => updateWorkExperience(work.id, 'startYear', e.target.value)}
+                  disabled={!isEditing}
                   required
                 >
                   <option value="">Select Year</option>
@@ -235,8 +240,8 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={work.endYear}
                   onChange={(e) => updateWorkExperience(work.id, 'endYear', e.target.value)}
+                  disabled={!isEditing || work.currentJob}
                   required
-                  disabled={work.currentJob}
                 >
                   <option value="">Select Year</option>
                   {work.currentJob ? (
@@ -263,6 +268,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                           updateWorkExperience(work.id, 'endYear', 'Present');
                         }
                       }}
+                      disabled={!isEditing}
                     />
                     Current Job
                   </label>
@@ -273,6 +279,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={work.workType}
                   onChange={(e) => updateWorkExperience(work.id, 'workType', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Work Type</option>
                   {workTypes.map(type => (
@@ -288,6 +295,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={work.rating}
                   onChange={(e) => updateWorkExperience(work.id, 'rating', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Rating</option>
                   {ratings.map(rating => (
@@ -300,6 +308,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <select
                   value={work.jobCategory}
                   onChange={(e) => updateWorkExperience(work.id, 'jobCategory', e.target.value)}
+                  disabled={!isEditing}
                 >
                   <option value="">Select Category</option>
                   {jobCategories.map(category => (
@@ -315,6 +324,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <textarea
                   value={work.summary}
                   onChange={(e) => updateWorkExperience(work.id, 'summary', e.target.value)}
+                  disabled={!isEditing}
                   rows={3}
                 />
               </div>
@@ -326,10 +336,11 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <div key={exp.id} style={{ marginBottom: '15px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                     <span>Experience {expIndex + 1}</span>
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       className="btn btn-secondary"
                       onClick={() => removeJobExperience(work.id, exp.id)}
+                      disabled={!isEditing}
                     >
                       Remove
                     </button>
@@ -340,6 +351,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                       <textarea
                         value={exp.description}
                         onChange={(e) => updateJobExperience(work.id, exp.id, 'description', e.target.value)}
+                        disabled={!isEditing}
                         rows={2}
                       />
                     </div>
@@ -348,6 +360,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                       <select
                         value={exp.rating}
                         onChange={(e) => updateJobExperience(work.id, exp.id, 'rating', e.target.value)}
+                        disabled={!isEditing}
                       >
                         <option value="">Select Rating</option>
                         {ratings.map(rating => (
@@ -358,10 +371,11 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                   </div>
                 </div>
               ))}
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-secondary add-button"
                 onClick={() => addJobExperience(work.id)}
+                disabled={!isEditing}
               >
                 Add Experience
               </button>
@@ -373,10 +387,11 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                 <div key={task.id} style={{ marginBottom: '15px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                     <span>Task {taskIndex + 1}</span>
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       className="btn btn-secondary"
                       onClick={() => removeJobTask(work.id, task.id)}
+                      disabled={!isEditing}
                     >
                       Remove
                     </button>
@@ -387,6 +402,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                       <select
                         value={task.task}
                         onChange={(e) => updateJobTask(work.id, task.id, 'task', e.target.value)}
+                        disabled={!isEditing}
                       >
                         <option value="">Select Task</option>
                         {commonTasks.map(taskName => (
@@ -399,6 +415,7 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                       <select
                         value={task.rating}
                         onChange={(e) => updateJobTask(work.id, task.id, 'rating', e.target.value)}
+                        disabled={!isEditing}
                       >
                         <option value="">Select Rating</option>
                         {ratings.map(rating => (
@@ -409,21 +426,23 @@ const Work: React.FC<WorkProps> = ({ data, onDataUpdate }) => {
                   </div>
                 </div>
               ))}
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="btn btn-secondary add-button"
                 onClick={() => addJobTask(work.id)}
+                disabled={!isEditing}
               >
                 Add Task
               </button>
             </div>
           </div>
         ))}
-        
-        <button 
-          type="button" 
+
+        <button
+          type="button"
           className="btn btn-primary add-button"
           onClick={addWorkExperience}
+          disabled={!isEditing}
         >
           Add Work Experience
         </button>

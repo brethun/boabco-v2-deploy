@@ -19,9 +19,12 @@ import SkillsComp from './SkillsComp';
 import Recommendations from './Recommendations';
 import Notes from './Notes';
 import MyProfile from './MyProfile';
+import Surveys from './Surveys';
+import Referrals from './Referrals';
+import History from './History';
 import './PeopleTab.css';
 
-type TabType = 'personal' | 'work' | 'skills' | 'recommendations' | 'notes' | 'profile';
+type TabType = 'personal' | 'work' | 'skills' | 'recommendations' | 'notes' | 'profile' | 'surveys' | 'referrals' | 'history';
 
 const DATA_KEY_MAP: Record<TabType, PeopleTabSection> = {
   personal: 'personalDetails',
@@ -29,7 +32,10 @@ const DATA_KEY_MAP: Record<TabType, PeopleTabSection> = {
   skills: 'skillsComp',
   recommendations: 'recommendations',
   notes: 'notes',
-  profile: 'profile'
+  profile: 'profile',
+  surveys: 'surveys',
+  referrals: 'referrals',
+  history: 'history'
 };
 
 const formatDate = (value: string) => {
@@ -49,6 +55,7 @@ const formatDate = (value: string) => {
 const PeopleTab: React.FC = () => {
   const dispatch = useAppDispatch();
   const [activeTab, setActiveTab] = useState<TabType>('personal');
+  const [isEditing, setIsEditing] = useState(false);
   const people = useAppSelector(selectPeopleList);
   const listStatus = useAppSelector(selectPeopleListStatus);
   const selectedPersonId = useAppSelector(selectSelectedPersonId);
@@ -107,7 +114,12 @@ const PeopleTab: React.FC = () => {
 
   const handleBackToDirectory = () => {
     setActiveTab('personal');
+    setIsEditing(false);
     dispatch(clearSelectedPerson());
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
   };
 
   useEffect(() => {
@@ -171,13 +183,23 @@ const PeopleTab: React.FC = () => {
       { id: 'work', label: 'Work History', component: Work },
       { id: 'skills', label: 'Skills & Competencies', component: SkillsComp },
       { id: 'recommendations', label: 'Recommendations', component: Recommendations },
-      { id: 'notes', label: 'Notes & Interactions', component: Notes },
-      { id: 'profile', label: 'My Profile', component: MyProfile }
+      { id: 'profile', label: 'My Profile', component: MyProfile },
+      { id: 'notes', label: 'Notes', component: Notes }
     ],
     []
   );
 
-  const activeTabConfig = tabs.find((tab) => tab.id === activeTab) ?? tabs[0];
+  const secondaryTabs = useMemo(
+    () => [
+      { id: 'surveys', label: 'Surveys', component: Surveys },
+      { id: 'referrals', label: 'Referrals', component: Referrals },
+      { id: 'history', label: 'History', component: History }
+    ],
+    []
+  );
+
+  const allTabs = [...tabs, ...secondaryTabs];
+  const activeTabConfig = allTabs.find((tab) => tab.id === activeTab) ?? tabs[0];
   const ActiveComponent = activeTabConfig.component;
 
   const selectedPersonName = useMemo(() => {
@@ -196,7 +218,7 @@ const PeopleTab: React.FC = () => {
   }, [selectedSummary]);
 
   const handleDataUpdate = (tabType: TabType, data: unknown) => {
-    if (!selectedPersonId || personStatus !== 'succeeded') {
+    if (!selectedPersonId || personStatus !== 'succeeded' || !isEditing) {
       return;
     }
 
@@ -208,6 +230,10 @@ const PeopleTab: React.FC = () => {
         data: data as PersonRecord[PeopleTabSection]
       })
     );
+  };
+
+  const handleSave = () => {
+    setIsEditing(false);
   };
 
   return (
@@ -224,10 +250,30 @@ const PeopleTab: React.FC = () => {
                 Back to people directory
               </button>
               <h1 className="page-title">{selectedPersonName}</h1>
-              <p className="page-subtitle">
-                Review and update participant information across personal, work, and engagement records on a single
-                page.
-              </p>
+              {selectedSummary && (
+                <div className="person-header-info">
+                  <div className="person-header-row">
+                    <span className="person-header-status">{selectedSummary.engagementStatus}</span>
+                    <span className="person-header-location">{selectedSummary.community}</span>
+                  </div>
+                  <div className="person-header-role">
+                    {selectedSummary.currentRole}
+                    {selectedSummary.employer && <> • {selectedSummary.employer}</>}
+                  </div>
+                  {selectedSummary.preferredIndustries.length > 0 && (
+                    <div className="person-header-tags">
+                      {selectedSummary.preferredIndustries.map((industry) => (
+                        <span key={industry} className="person-header-tag">
+                          {industry}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="person-header-interaction">
+                    Last interaction {formattedLastInteraction}
+                  </div>
+                </div>
+              )}
             </>
           ) : (
             <>
@@ -242,8 +288,26 @@ const PeopleTab: React.FC = () => {
           )}
         </div>
         {isPersonSelected && (
+          <div className="page-actions">
+            {!isEditing ? (
+              <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>
+                Edit person
+              </button>
+            ) : (
+              <>
+                <button className="btn btn-secondary" type="button" onClick={handleCancel}>
+                  Cancel
+                </button>
+                <button className="btn btn-primary" type="button" onClick={handleSave}>
+                  Save changes
+                </button>
+              </>
+            )}
+          </div>
+        )}
+        {isPersonSelected && (
           <nav className="page-tabs" aria-label="People record sections">
-            {tabs.map((tab) => (
+            {allTabs.map((tab) => (
               <button
                 key={tab.id}
                 type="button"
@@ -316,28 +380,6 @@ const PeopleTab: React.FC = () => {
         </div>
       ) : (
         <div className="surface">
-          {selectedSummary && (
-            <div className="people-record-overview">
-              <div className="people-record-overview__meta">
-                <span className="people-record-overview__status">{selectedSummary.engagementStatus}</span>
-                <span className="people-record-overview__community">{selectedSummary.community}</span>
-              </div>
-              <div className="people-record-overview__role">
-                <span>{selectedSummary.currentRole}</span>
-                {selectedSummary.employer && <span> · {selectedSummary.employer}</span>}
-              </div>
-              <div className="people-record-overview__footer">
-                <span>Last interaction {formattedLastInteraction}</span>
-              </div>
-              {selectedSummary.preferredIndustries.length > 0 && (
-                <div className="people-record-overview__industries">
-                  {selectedSummary.preferredIndustries.map((industry) => (
-                    <span key={industry}>{industry}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
           {personStatus === 'failed' && selectedPersonId && (
             <div className="people-record-error">
               <p>We couldn&apos;t load this record just now.</p>
@@ -361,6 +403,7 @@ const PeopleTab: React.FC = () => {
                 <ActiveComponent
                   data={personData}
                   onDataUpdate={(data: unknown) => handleDataUpdate(activeTabConfig.id as TabType, data)}
+                  isEditing={isEditing}
                 />
               )}
             </div>

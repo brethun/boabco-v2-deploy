@@ -8,7 +8,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Referral #24784',
       title: 'Referral #24784',
-      assignee: 'Wunan SP',
+      assignee: 'Elite Recruitment',
       status: 'Pending Approval',
       referred: 'Jul 24, 21:46',
       lastUpdated: 'Jul 24, 21:46',
@@ -157,7 +157,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Referral #24783',
       title: 'Referral #24783',
-      assignee: 'Wunan SP',
+      assignee: 'Wunan Foundation',
       status: 'Pending Approval',
       referred: 'Jul 24, 21:34',
       lastUpdated: 'Jul 24, 21:34'
@@ -165,7 +165,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Referral #24782',
       title: 'Referral #24782',
-      assignee: 'Wunan SP',
+      assignee: 'Wunan Foundation',
       status: 'Pending Approval',
       referred: 'Jul 24, 21:26',
       lastUpdated: 'Jul 24, 21:26'
@@ -173,7 +173,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Referral #24781',
       title: 'Referral #24781',
-      assignee: 'Wunan SP',
+      assignee: 'Wunan Foundation',
       status: 'Pending Approval',
       referred: 'Jul 24, 21:10',
       lastUpdated: 'Jul 24, 21:10'
@@ -181,7 +181,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Referral #24780',
       title: 'Referral #24780',
-      assignee: 'Wunan SP',
+      assignee: 'Wunan Foundation',
       status: 'Pending Approval',
       referred: 'Jul 24, 21:09',
       lastUpdated: 'Jul 24, 21:09'
@@ -189,7 +189,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Demo 6',
       title: 'New Demo 6',
-      assignee: 'Kit Lim',
+      assignee: 'TechTalent Specialists',
       status: 'In Progress',
       response: 'Jun 23, 2025',
       referred: 'Jun 24, 19:46',
@@ -296,7 +296,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Test4',
       title: 'New Test4',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'In Progress',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 22:46',
@@ -305,7 +305,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Test3',
       title: 'New Test3',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'In Progress',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 18:35',
@@ -314,7 +314,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Test3-2',
       title: 'New Test3',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'In Progress',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 18:32',
@@ -329,7 +329,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Demo 5',
       title: 'New Demo 5',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Complete',
       response: 'Jun 20, 2025',
       referred: 'Jun 20, 11:27',
@@ -338,7 +338,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Demo 6-2',
       title: 'New Demo 6',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Complete',
       response: 'Jun 20, 2025',
       referred: 'Jun 20, 08:41',
@@ -347,7 +347,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Test4-2',
       title: 'New Test4',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Complete',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 22:51',
@@ -488,13 +488,13 @@ const Referrals: React.FC = () => {
     {
       id: 'Client Two-2',
       title: 'Client Two',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Complete'
     },
     {
       id: 'New Test5',
       title: 'New Test5',
-      assignee: 'Wunan (BH)',
+      assignee: 'Healthcare Heroes',
       status: 'Rejected',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 23:23',
@@ -575,7 +575,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Test4-3',
       title: 'New Test4',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Rejected',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 22:51',
@@ -584,7 +584,7 @@ const Referrals: React.FC = () => {
     {
       id: 'New Test3-3',
       title: 'New Test3',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Rejected',
       response: 'Jun 19, 2025',
       referred: 'Jun 19, 18:34',
@@ -593,7 +593,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Referral #24239',
       title: 'Referral #24239',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Rejected',
       response: 'Jun 13, 2025',
       referred: 'Jun 13, 08:24',
@@ -602,7 +602,7 @@ const Referrals: React.FC = () => {
     {
       id: 'Demo Zero-2',
       title: 'Demo Zero',
-      assignee: 'Wunan (BH)',
+      assignee: 'Wunan Foundation',
       status: 'Rejected'
     }
   ]);
@@ -696,19 +696,19 @@ const Referrals: React.FC = () => {
                           </div>
                         </div>
                         <div className="card-details">
-                          {referral.response && (
+                          {referral.response && typeof referral.response === 'string' && referral.response.trim() !== '' && (
                             <div className="detail-item">
                               <span className="detail-key">Response</span>
                               <span>{referral.response}</span>
                             </div>
                           )}
-                          {referral.referred && (
+                          {referral.referred && typeof referral.referred === 'string' && referral.referred.trim() !== '' && (
                             <div className="detail-item">
                               <span className="detail-key">Referred</span>
                               <span>{referral.referred}</span>
                             </div>
                           )}
-                          {referral.lastUpdated && (
+                          {referral.lastUpdated && typeof referral.lastUpdated === 'string' && referral.lastUpdated.trim() !== '' && (
                             <div className="detail-item">
                               <span className="detail-key">Updated</span>
                               <span>{referral.lastUpdated}</span>

@@ -352,3 +352,217 @@
     padding: var(--space-4);
   }
 }
+
+/* People Directory styles matching the screenshot */
+.people-directory-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6) 0;
+}
+
+.people-directory-header {
+  margin-bottom: var(--space-6);
+}
+
+.people-directory-header h1 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #8B4513;
+  line-height: 1.2;
+}
+
+.people-directory-header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.people-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+  max-width: 1400px;
+}
+
+.people-directory-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: var(--space-4);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.people-directory-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.prospect {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.re-engaging {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.last-contact {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.person-name {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.3;
+}
+
+.person-location {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.person-job-info {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.industry-tags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+.industry-tag {
+  padding: 4px 8px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Back navigation styles */
+.back-navigation {
+  margin-bottom: var(--space-4);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) 0;
+  border: none;
+  background: none;
+  color: #d97706;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #b45309;
+  text-decoration: underline;
+}
+
+/* Status inline styling */
+.status-inline {
+  margin-left: var(--space-1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-inline.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-inline.prospect {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-inline.re-engaging {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Form styling fixes */
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+@media (max-width: 768px) {
+  .people-directory-page {
+    padding: var(--space-4) 0;
+  }
+
+  .people-directory-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .people-directory-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .people-directory-card {
+    padding: var(--space-3);
+  }
+}

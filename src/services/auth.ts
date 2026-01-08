@@ -26,7 +26,8 @@ const base64UrlEncode = (str: string): string => {
 };
 
 const base64UrlDecode = (str: string): string => {
-  str += new Array(5 - str.length % 4).join('=');
+  const padding = (4 - (str.length % 4)) % 4;
+  str += '='.repeat(padding);
   return atob(str.replace(/-/g, '+').replace(/_/g, '/'));
 };
 
@@ -80,12 +81,15 @@ export const authUtils = {
   async mockLogin(email: string, password: string): Promise<AuthTokens | null> {
     // Mock validation - in real app, this would call an API
     const mockUsers = {
+      'admin@boabco.com.au': { name: 'Admin User', role: 'admin' },
       'admin@boabco.com': { name: 'Admin User', role: 'admin' },
       'user@boabco.com': { name: 'Standard User', role: 'user' }
     };
 
+    const validPassword = process.env.REACT_APP_DEMO_PASSWORD || 'password';
+
     // Simple password check for mock - in real app, this would be hashed
-    if (!mockUsers[email as keyof typeof mockUsers] || password !== 'password') {
+    if (!mockUsers[email as keyof typeof mockUsers] || password !== validPassword) {
       return null;
     }
 
