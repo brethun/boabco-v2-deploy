@@ -3,7 +3,17 @@ import { PersonRecord, Qualification, SkillRecord, WorkExperience } from '../fea
 import { initialReferralRecords } from '../mocks/referralsMockData';
 import { initialCampaignRecords } from '../mocks/campaignsMockData';
 import { initialServiceProviderRecords } from '../mocks/serviceProvidersMockData';
-import { AnalyticsData, AnalyticsFilters, AggregatedMetric, FilterOptions } from '../features/analytics/types';
+import {
+	AnalyticsData,
+	AnalyticsFilters,
+	AggregatedMetric,
+	FilterOptions,
+	ReportVariable,
+	EnrichedReportData,
+	SegmentAnalysis,
+	SegmentBreakdowns,
+	REPORT_VARIABLES
+} from '../features/analytics/types';
 
 const ANONYMIZATION_THRESHOLD = 3;
 
@@ -299,6 +309,62 @@ const getFilterOptions = (): FilterOptions => {
 	};
 };
 
+// Filter people by segment value for the given variable
+const filterBySegment = (people: PersonRecord[], variable: ReportVariable, segmentValue: string): PersonRecord[] => {
+	return people.filter(person => {
+		switch (variable) {
+			case 'gender':
+				return (person.personalDetails.gender || 'Not Stated') === segmentValue;
+			case 'community':
+				return (person.personalDetails.community || 'Unknown') === segmentValue;
+			case 'engagementStatus':
+				return (person.engagementStatus || 'Unknown') === segmentValue;
+			case 'employmentStatus':
+				const hasCurrentJob = person.workHistory.some((w: WorkExperience) => w.currentJob);
+				const status = hasCurrentJob ? 'Employed' : (person.engagementStatus === 'Active' || person.engagementStatus === 'Prospect') ? 'Seeking' : 'Not Working';
+				return status === segmentValue;
+			case 'qualificationLevel':
+				return person.skillsComp.qualifications.some((q: Qualification) => q.level === segmentValue);
+			case 'skillCategory':
+				return person.skillsComp.skills.some((s: SkillRecord) => s.skill === segmentValue);
+			default:
+				return false;
+		}
+	});
+};
+
+// Get all breakdowns for a segment (excluding the selected variable)
+const getSegmentBreakdowns = (people: PersonRecord[], excludeVariable: ReportVariable): SegmentBreakdowns => {
+	return {
+		skills: getSkillsDistribution(people),
+		engagementStatus: getEngagementStatus(people),
+		employmentStatus: getEmploymentStatus(people),
+		qualificationLevels: getQualificationLevels(people),
+		communityBreakdown: getCommunityBreakdown(people),
+		genderDistribution: getGenderDistribution(people)
+	};
+};
+
+// Get main distribution for the selected variable
+const getMainDistribution = (people: PersonRecord[], variable: ReportVariable): AggregatedMetric[] => {
+	switch (variable) {
+		case 'gender':
+			return getGenderDistribution(people);
+		case 'community':
+			return getCommunityBreakdown(people);
+		case 'engagementStatus':
+			return getEngagementStatus(people);
+		case 'employmentStatus':
+			return getEmploymentStatus(people);
+		case 'qualificationLevel':
+			return getQualificationLevels(people);
+		case 'skillCategory':
+			return getSkillsDistribution(people);
+		default:
+			return [];
+	}
+};
+
 export const mockAnalyticsClient = {
 	async getAnalyticsData(filters?: AnalyticsFilters): Promise<AnalyticsData> {
 		await delay();
@@ -332,5 +398,49 @@ export const mockAnalyticsClient = {
 	async getFilterOptions(): Promise<FilterOptions> {
 		await delay(100);
 		return getFilterOptions();
+	},
+
+	async getSegmentedAnalytics(
+		variable: ReportVariable,
+		filters?: AnalyticsFilters
+	): Promise<EnrichedReportData> {
+		await delay(300);
+
+		const filteredPeople = applyFilters(initialPeopleRecords, filters);
+		const totalRecords = filteredPeople.length;
+
+		// Get the main distribution for the selected variable
+		const mainDistribution = getMainDistribution(filteredPeople, variable);
+
+		// Get unique segment values from the main distribution (already anonymized)
+		const segmentLabels = mainDistribution
+			.filter(m => m.label !== 'Other') // Skip "Other" category for detailed breakdown
+			.map(m => m.label);
+
+		// Build segment analysis for each segment
+		const segments: SegmentAnalysis[] = [];
+
+		for (const segmentLabel of segmentLabels) {
+			const segmentPeople = filterBySegment(filteredPeople, variable, segmentLabel);
+			const segmentValue = segmentPeople.length;
+
+			// Only include segments that meet the anonymization threshold
+			if (segmentValue >= ANONYMIZATION_THRESHOLD) {
+				segments.push({
+					segmentLabel,
+					segmentValue,
+					segmentPercentage: Math.round((segmentValue / totalRecords) * 100),
+					breakdowns: getSegmentBreakdowns(segmentPeople, variable)
+				});
+			}
+		}
+
+		return {
+			variable,
+			variableLabel: REPORT_VARIABLES[variable].label,
+			totalRecords,
+			mainDistribution,
+			segments
+		};
 	}
 };

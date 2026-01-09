@@ -59,6 +59,35 @@
 	font-weight: 400;
 }
 
+.analytics-hero__report-btn {
+	position: absolute;
+	top: 32px;
+	right: 32px;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 20px;
+	background: linear-gradient(135deg, #E2592A 0%, #f06d42 100%);
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	box-shadow: 0 4px 16px rgba(226, 89, 42, 0.3);
+}
+
+.analytics-hero__report-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 24px rgba(226, 89, 42, 0.4);
+}
+
+.analytics-hero__report-btn:active {
+	transform: translateY(0);
+}
+
 /* Main Content Area */
 .analytics-main {
 	max-width: 1400px;
@@ -355,6 +384,13 @@
 
 	.analytics-hero__title {
 		font-size: 24px;
+	}
+
+	.analytics-hero__report-btn {
+		position: static;
+		margin-top: 16px;
+		width: 100%;
+		justify-content: center;
 	}
 }
 
