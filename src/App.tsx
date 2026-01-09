@@ -6,7 +6,6 @@ import { SessionProvider } from './components/auth/SessionProvider';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import LoginPage from './components/auth/LoginPage';
 import AppLayout from './components/layout/AppLayout';
-import ComingSoon from './components/common/ComingSoon';
 import PeopleTab from './features/people/components/PeopleTab';
 import PeopleBBY from './features/people-bby/components/PeopleBBY';
 import Business from './features/business/components/Business';
@@ -15,6 +14,7 @@ import Referrals from './features/referrals/components/Referrals';
 import ServiceProviders from './features/service-providers/components/ServiceProviders';
 import Jobs from './features/jobs/components/Jobs';
 import Training from './features/training/components/Training';
+import { Analytics } from './features/analytics';
 
 const App: React.FC = () => {
   return (
@@ -32,12 +32,7 @@ const App: React.FC = () => {
             <Route path="service-providers" element={<ServiceProviders />} />
             <Route path="jobs" element={<Jobs />} />
             <Route path="training" element={<Training />} />
-            <Route
-              path="analytics"
-              element={
-                <ComingSoon title="Analytics" message="Analytics dashboards are coming soon." />
-              }
-            />
+            <Route path="analytics" element={<Analytics />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/people" replace />} />

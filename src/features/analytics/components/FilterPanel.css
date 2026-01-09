@@ -1,0 +1,251 @@
+/* Filter Panel - BoAbCo Brand Styling */
+.filter-panel {
+	background: #ffffff;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(72, 43, 18, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(72, 43, 18, 0.06);
+	overflow: hidden;
+	height: fit-content;
+	position: sticky;
+	top: 20px;
+}
+
+.filter-panel__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 18px 20px;
+	background: linear-gradient(135deg, #482B12 0%, #5a3818 100%);
+	position: relative;
+}
+
+.filter-panel__header::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(90deg, #E2592A 0%, #FAB819 100%);
+}
+
+.filter-panel__title-group {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.filter-panel__icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.15);
+	color: #fff;
+	font-size: 14px;
+}
+
+.filter-panel__title {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	color: #ffffff;
+	letter-spacing: -0.01em;
+}
+
+.filter-panel__clear-btn {
+	background: rgba(255, 255, 255, 0.15);
+	border: none;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 6px 12px;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+}
+
+.filter-panel__clear-btn:hover {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.filter-panel__body {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+}
+
+.filter-group {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.filter-label {
+	font-size: 11px;
+	font-weight: 600;
+	color: #9a8a7c;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.filter-select {
+	width: 100%;
+	padding: 10px 14px;
+	font-size: 14px;
+	border: 2px solid rgba(72, 43, 18, 0.1);
+	border-radius: 10px;
+	background: #fefcfa;
+	color: #482B12;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-weight: 500;
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23482B12' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	padding-right: 36px;
+}
+
+.filter-select:hover {
+	border-color: rgba(226, 89, 42, 0.3);
+	background-color: #fff;
+}
+
+.filter-select:focus {
+	outline: none;
+	border-color: #E2592A;
+	box-shadow: 0 0 0 3px rgba(226, 89, 42, 0.1);
+	background-color: #fff;
+}
+
+.filter-select option {
+	padding: 8px;
+}
+
+/* Active Filters Section */
+.filter-panel__active {
+	margin: 0;
+	padding: 16px 20px;
+	background: linear-gradient(180deg, #fef9f3 0%, #fff7ed 100%);
+	border-top: 1px solid rgba(72, 43, 18, 0.08);
+}
+
+.filter-panel__active-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 12px;
+}
+
+.filter-panel__active-title {
+	margin: 0;
+	font-size: 11px;
+	font-weight: 600;
+	color: #9a8a7c;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.filter-panel__active-count {
+	font-size: 11px;
+	font-weight: 700;
+	color: #E2592A;
+	background: rgba(226, 89, 42, 0.1);
+	padding: 2px 8px;
+	border-radius: 10px;
+}
+
+.filter-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.filter-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: #ffffff;
+	padding: 6px 10px 6px 14px;
+	border-radius: 20px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #482B12;
+	border: 1px solid rgba(72, 43, 18, 0.12);
+	box-shadow: 0 1px 3px rgba(72, 43, 18, 0.06);
+	transition: all 0.2s ease;
+}
+
+.filter-chip:hover {
+	border-color: #E2592A;
+	box-shadow: 0 2px 6px rgba(226, 89, 42, 0.15);
+}
+
+.filter-chip--from-chart {
+	background: linear-gradient(135deg, rgba(226, 89, 42, 0.08) 0%, rgba(250, 184, 25, 0.06) 100%);
+	border-color: rgba(226, 89, 42, 0.2);
+}
+
+.filter-chip__icon {
+	font-size: 12px;
+	opacity: 0.6;
+}
+
+.filter-chip__label {
+	white-space: nowrap;
+}
+
+.filter-chip__remove {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	background: rgba(72, 43, 18, 0.08);
+	border: none;
+	border-radius: 50%;
+	color: #6b5849;
+	font-size: 14px;
+	line-height: 1;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.filter-chip__remove:hover {
+	background: #E2592A;
+	color: #fff;
+}
+
+.filter-chip--from-chart .filter-chip__remove {
+	background: rgba(226, 89, 42, 0.15);
+	color: #E2592A;
+}
+
+.filter-chip--from-chart .filter-chip__remove:hover {
+	background: #E2592A;
+	color: #fff;
+}
+
+/* Empty State */
+.filter-panel__empty {
+	text-align: center;
+	padding: 20px;
+	color: #9a8a7c;
+	font-size: 13px;
+}
+
+.filter-panel__empty-icon {
+	font-size: 24px;
+	margin-bottom: 8px;
+	opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+	.filter-panel {
+		position: static;
+	}
+}

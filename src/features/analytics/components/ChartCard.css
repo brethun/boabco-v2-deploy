@@ -1,0 +1,151 @@
+/* Chart Card - BoAbCo Brand Styling */
+.chart-card {
+	background: #ffffff;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(72, 43, 18, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(72, 43, 18, 0.06);
+	transition: all 0.3s ease;
+	overflow: hidden;
+}
+
+.chart-card:hover {
+	box-shadow: 0 8px 32px rgba(72, 43, 18, 0.1), 0 2px 4px rgba(0, 0, 0, 0.04);
+	transform: translateY(-2px);
+}
+
+.chart-card--active {
+	border-color: #E2592A;
+	box-shadow: 0 0 0 3px rgba(226, 89, 42, 0.12), 0 8px 32px rgba(72, 43, 18, 0.1);
+}
+
+.chart-card__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 18px 20px 14px;
+	background: linear-gradient(180deg, #fefcfa 0%, #ffffff 100%);
+	border-bottom: 1px solid rgba(72, 43, 18, 0.06);
+}
+
+.chart-card__title-group {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.chart-card__icon {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	background: linear-gradient(135deg, rgba(226, 89, 42, 0.1) 0%, rgba(250, 184, 25, 0.08) 100%);
+	color: #E2592A;
+}
+
+.chart-card__title {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #482B12;
+	letter-spacing: -0.01em;
+}
+
+.chart-card__active-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+	font-weight: 600;
+	color: #E2592A;
+	background: linear-gradient(135deg, rgba(226, 89, 42, 0.12) 0%, rgba(226, 89, 42, 0.06) 100%);
+	padding: 4px 10px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.chart-card__active-badge::before {
+	content: '';
+	width: 6px;
+	height: 6px;
+	background: #E2592A;
+	border-radius: 50%;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0%, 100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.6;
+		transform: scale(0.8);
+	}
+}
+
+.chart-card__body {
+	padding: 16px 16px 20px;
+	min-height: 260px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.chart-card__loading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	color: #9a8a7c;
+	font-size: 14px;
+}
+
+.chart-card__loading-spinner {
+	width: 36px;
+	height: 36px;
+	border: 3px solid rgba(226, 89, 42, 0.15);
+	border-top-color: #E2592A;
+	border-radius: 50%;
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Size Variants */
+.chart-card--small .chart-card__body {
+	min-height: 200px;
+}
+
+.chart-card--large .chart-card__body {
+	min-height: 340px;
+}
+
+/* Chart Type Specific Icons */
+.chart-card--bar .chart-card__icon {
+	background: linear-gradient(135deg, rgba(226, 89, 42, 0.12) 0%, rgba(226, 89, 42, 0.06) 100%);
+	color: #E2592A;
+}
+
+.chart-card--pie .chart-card__icon {
+	background: linear-gradient(135deg, rgba(250, 184, 25, 0.15) 0%, rgba(250, 184, 25, 0.08) 100%);
+	color: #d99f00;
+}
+
+.chart-card--donut .chart-card__icon {
+	background: linear-gradient(135deg, rgba(72, 43, 18, 0.12) 0%, rgba(72, 43, 18, 0.06) 100%);
+	color: #482B12;
+}
+
+/* Hover Effect on Chart Area */
+.chart-card__body:hover .recharts-bar-rectangle,
+.chart-card__body:hover .recharts-pie-sector {
+	filter: brightness(1.05);
+}
