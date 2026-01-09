@@ -3,38 +3,16 @@
 
 .analytics {
 	padding: 0;
-	background: linear-gradient(135deg, #fef9f3 0%, #fff7ed 50%, #fef3e8 100%);
+	background: var(--off-white, #fef9f3);
 	min-height: 100vh;
 }
 
-/* Hero Header with Gradient */
+/* Hero Header - Standard Style */
 .analytics-hero {
-	background: linear-gradient(135deg, #482B12 0%, #5a3818 50%, #6b4520 100%);
-	padding: 32px 32px 80px;
+	padding: 32px 32px 16px;
+	border-bottom: 1px solid var(--border-subtle, #e8e1d7);
 	position: relative;
-	overflow: hidden;
-}
-
-.analytics-hero::before {
-	content: '';
-	position: absolute;
-	top: -50%;
-	right: -10%;
-	width: 500px;
-	height: 500px;
-	background: radial-gradient(circle, rgba(250, 184, 25, 0.15) 0%, transparent 70%);
-	pointer-events: none;
-}
-
-.analytics-hero::after {
-	content: '';
-	position: absolute;
-	bottom: -30%;
-	left: 10%;
-	width: 400px;
-	height: 400px;
-	background: radial-gradient(circle, rgba(226, 89, 42, 0.1) 0%, transparent 70%);
-	pointer-events: none;
+	overflow: visible;
 }
 
 .analytics-hero__content {
@@ -47,15 +25,15 @@
 .analytics-hero__title {
 	margin: 0 0 8px;
 	font-size: 32px;
-	font-weight: 700;
-	color: #ffffff;
+	font-weight: 600;
+	color: var(--deep-brown, #482B12);
 	letter-spacing: -0.02em;
 }
 
 .analytics-hero__subtitle {
 	margin: 0;
 	font-size: 15px;
-	color: rgba(255, 255, 255, 0.75);
+	color: var(--text-muted, #5e5248);
 	font-weight: 400;
 }
 
@@ -91,10 +69,9 @@
 /* Main Content Area */
 .analytics-main {
 	max-width: 1400px;
-	margin: -48px auto 0;
-	padding: 0 32px 48px;
+	margin: 0 auto;
+	padding: 24px 32px 48px;
 	position: relative;
-	z-index: 2;
 }
 
 /* Summary Cards - Floating Style */
@@ -374,12 +351,11 @@
 
 @media (max-width: 768px) {
 	.analytics-hero {
-		padding: 24px 20px 60px;
+		padding: 24px 20px 12px;
 	}
 
 	.analytics-main {
-		padding: 0 20px 32px;
-		margin-top: -36px;
+		padding: 20px 20px 32px;
 	}
 
 	.analytics-hero__title {
@@ -400,10 +376,10 @@
 	}
 
 	.analytics-hero {
-		padding: 20px 16px 50px;
+		padding: 20px 16px 12px;
 	}
 
 	.analytics-main {
-		padding: 0 16px 24px;
+		padding: 16px 16px 24px;
 	}
 }
